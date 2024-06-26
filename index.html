@@ -1,81 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сам Коин</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <img src="images/title.png" alt="Сам Коин" class="title">
-            <div class="rank" id="rank">Ранг 1</div>
-        </div>
-        <div class="score" id="score">0 монет</div>
-        <div class="button-container">
-            <div class="button-wrapper">
-                <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton">
-                <span id="stakingEarnings" class="transparent-text">0 монет</span>
-            </div>
-            <div class="button-wrapper">
-                <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton">
-            </div>
-            <div class="button-wrapper">
-                <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton">
-            </div>
-        </div>
-        <div class="rank-table" id="rankTable">
-            <table>
-                <tr>
-                    <th>Ранг</th>
-                    <th>Монеты для повышения</th>
-                    <th>Вознаграждение</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>100</td>
-                    <td>10 монет</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>1000</td>
-                    <td>100 монет</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>10000</td>
-                    <td>1000 монет</td>
-                </tr>
-                <!-- Добавьте остальные ранги здесь -->
-            </table>
-        </div>
-        <div class="pass-modal" id="passModal">
-            PASS
-            <span class="close" id="closePassModal">&times;</span>
-        </div>
-        <div class="staking-modal" id="stakingModal">
-            <h2>Стейкинг</h2>
-            <p>Заморозьте свои монеты и получайте 10% от суммы в час.</p>
-            <p>Вы застейкали: <span id="stakedAmount">0</span> монет</p>
-            <p>Прибыль в минуту: <span id="stakingProfit">0</span> монет</p>
-            <input type="number" id="stakeAmount" placeholder="Введите сумму для стейкинга">
-            <button id="stakeButton">Застейкать</button>
-            <span class="close" id="closeStakingModal">&times;</span>
-        </div>
-        <div class="earnings-modal" id="earningsModal">
-            <h2>Ваш заработок</h2>
-            <p>Вы заработали <span id="earnedAmount">0</span> монет.</p>
-            <button id="claimEarningsButton">Получить</button>
-            <span class="earned-animation" id="earnedAnimation">Вы получили <span id="earnedAnimationAmount">0</span> монет!</span>
-        </div>
-    </div>
-    <div class="footer">
-        <img src="images/home_icon.png" alt="Домой" id="homeButton">
-        <img src="images/referrals_icon.png" alt="Рефералы" id="referralsButton">
-        <img src="images/tasks_icon.png" alt="Задания" id="tasksButton">
-        <img src="images/wallet_icon.png" alt="Кошелек" id="walletButton">
-    </div>
-    <script src="scripts.js"></script>
-</body>
-</html>
+let score = 0;
+let rank = 1;
+let stakedAmount = 0; // Количество застейканных монет
+let stakingEarnings = 0; // Монеты, которые можно собрать
+let stakingClickCount = 0; // Счетчик нажатий для открытия окна стейкинга
+const scoreElement = document.getElementById('score');
+const rankElement = document.getElementById('rank');
+const rankTable = document.getElementById('rankTable');
+const clickerButton = document.getElementById('clickerButton');
+const container = document.querySelector('.container');
+const passButton = document.getElementById('passButton');
+const passModal = document.getElementById('passModal');
+const closePassModal = document.getElementById('closePassModal');
+const stakingButton = document.getElementById('stakingButton');
+const stakingModal = document.getElementById('stakingModal');
+const closeStakingModal = document.getElementById('closeStakingModal');
+const stakeButton = document.getElementById('stakeButton');
+const claimStakingButton = document.getElementById('claimStakingButton');
+const stakeAmount = document.getElementById('stakeAmount');
+const stakedAmountElement = document.getElementById('stakedAmount');
+const stakingProfitElement = document.getElementById('stakingProfit');
+const stakingEarningsElement = document.getElementById('stakingEarnings');
+const earningsModal = document.getElementById('earningsModal');
+const claimEarningsButton = document.getElementById('claimEarningsButton');
+const earnedAmountElement = document.getElementById('earnedAmount');
+const earnedAnimation = document.getElementById('earnedAnimation');
+const earnedAnimationAmount = document.getElementById('earnedAnimationAmount');
+const closeEarningsModal = document.getElementById('closeEarningsModal');
+
+clickerButton.addEventListener('click', () => {
+    score++;
+    updateScore();
+});
+
+passButton.addEventListener('click', () => {
+    passModal.style.display = 'block';
+});
+
+closePassModal.addEventListener('click', () => {
+    passModal.style.display = 'none';
+});
+
+stakingButton.addEventListener('mousedown', () => {
+    stakingClickCount++;
+    if (stakingClickCount === 3) {
+        openStakingModal();
+        stakingClickCount = 0;
+    }
+});
+
+closeStakingModal.addEventListener('click', () => {
+    stakingModal.style.display = 'none';
+});
+
+stakeButton.addEventListener('click', () => {
+    const amount = parseInt(stakeAmount.value);
+    if (!isNaN(amount) && amount > 0 && amount <= score) {
+        stakedAmount += amount;
+        score -= amount;
+        stakingEarnings += amount;
+        updateScore();
+        updateStaking();
+    }
+});
+
+claimStakingButton.addEventListener('click', () => {
+    score += stakingEarnings;
+    stakingEarnings = 0;
+    updateScore();
+    updateStaking();
+    showEarnings(stakingEarnings);
+});
+
+claimEarningsButton.addEventListener('click', () => {
+    earningsModal.style.display = 'none';
+});
+
+closeEarningsModal.addEventListener('click', () => {
+    earningsModal.style.display = 'none';
+});
+
+function updateScore() {
+    scoreElement.textContent = `${score} монет`;
+}
+
+function updateStaking() {
+    stakedAmountElement.textContent = stakedAmount;
+    stakingProfitElement.textContent = (stakedAmount * 0.1).toFixed(2);
+    stakingEarningsElement.textContent = stakingEarnings;
+}
+
+function openStakingModal() {
+    stakingModal.style.display = 'block';
+}
+
+function showEarnings(amount) {
+    earnedAmountElement.textContent = amount;
+    earnedAnimationAmount.textContent = amount;
+    earningsModal.style.display = 'block';
+    earnedAnimation.style.display = 'block';
+    setTimeout(() => {
+        earnedAnimation.style.display = 'none';
+    }, 3000);
+}
+
+// Логика начисления прибыли каждую минуту
+setInterval(() => {
+    const profit = stakedAmount * 0.1;
+    score += profit;
+    stakingEarnings += profit;
+    updateScore();
+    updateStaking();
+}, 60000);
+
+// При заходе в игру
+document.addEventListener('DOMContentLoaded', () => {
+    updateScore();
+    updateStaking();
+});
