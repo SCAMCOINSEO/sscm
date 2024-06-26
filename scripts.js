@@ -18,7 +18,6 @@ const stakeAmount = document.getElementById('stakeAmount');
 const stakedAmountElement = document.getElementById('stakedAmount'); // Элемент для отображения застейканных монет
 const earningsModal = document.getElementById('earningsModal');
 const claimEarningsButton = document.getElementById('claimEarningsButton');
-const restakeEarningsButton = document.getElementById('restakeEarningsButton');
 const earnedAmountElement = document.getElementById('earnedAmount');
 const earnedAnimation = document.getElementById('earnedAnimation');
 const earnedAnimationAmount = document.getElementById('earnedAnimationAmount');
@@ -109,7 +108,16 @@ stakeButton.addEventListener('click', () => {
     stakedAmountElement.textContent = stakedAmount;
     localStorage.setItem('score', score);
     localStorage.setItem('stakedAmount', stakedAmount);
-    alert('Вы успешно застейкали ' + stakeValue + ' монет.');
+
+    const stakeAnimation = document.createElement('div');
+    stakeAnimation.classList.add('stake-animation');
+    stakeAnimation.textContent = `Вы застейкали ${stakeValue} монет.`;
+    container.appendChild(stakeAnimation);
+
+    setTimeout(() => {
+        stakeAnimation.remove();
+    }, 3000);
+
     stakingModal.style.display = 'none';
 });
 
@@ -149,7 +157,15 @@ restakeEarningsButton.addEventListener('click', () => {
         stakedAmountElement.textContent = stakedAmount;
         localStorage.setItem('score', score);
         localStorage.setItem('stakedAmount', stakedAmount);
-        alert('Вы успешно застейкали ' + earnings + ' монет.');
+
+        const restakeAnimation = document.createElement('div');
+        restakeAnimation.classList.add('restake-animation');
+        restakeAnimation.textContent = `Вы успешно застейкали ${earnings} монет.`;
+        container.appendChild(restakeAnimation);
+
+        setTimeout(() => {
+            restakeAnimation.remove();
+        }, 3000);
     }
     earningsModal.style.display = 'none';
 });
