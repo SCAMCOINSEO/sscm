@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сам Коин</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="images/title.png" alt="Сам Коин" class="title">
+            <div class="rank" id="rank">Ранг 1</div>
+        </div>
+        <div class="score" id="score">0 монет</div>
+        <div class="button-container">
+            <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton">
+            <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton">
+            <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton">
+        </div>
+        <div class="rank-table" id="rankTable">
+            <table>
+                <tr>
+                    <th>Ранг</th>
+                    <th>Монеты для повышения</th>
+                    <th>Вознаграждение</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>100</td>
+                    <td>10 монет</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>1000</td>
+                    <td>100 монет</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>10000</td>
+                    <td>1000 монет</td>
+                </tr>
+                <!-- Добавьте остальные ранги здесь -->
+            </table>
+        </div>
+        <div class="pass-modal" id="passModal">
+            PASS
+            <span class="close" id="closePassModal">&times;</span>
+        </div>
+        <div class="staking-modal" id="stakingModal">
+            <h2>Стейкинг</h2>
+            <p>Заморозьте свои монеты и получайте 10% от суммы в час.</p>
+            <input type="number" id="stakeAmount" placeholder="Введите сумму для стейкинга">
+            <button id="stakeButton">Застейкать</button>
+            <span class="close" id="closeStakingModal">&times;</span>
+        </div>
+        <div class="earnings-modal" id="earningsModal">
+            <h2>Ваш заработок</h2>
+            <p>Вы заработали <span id="earnedAmount">0</span> монет.</p>
+            <button id="claimEarningsButton">Получить</button>
+            <button id="restakeEarningsButton">Застейкать</button>
+        </div>
+    </div>
+    <div class="footer">
+        <img src="images/home_icon.png" alt="Домой" id="homeButton">
+        <img src="images/referrals_icon.png" alt="Рефералы" id="referralsButton">
+        <img src="images/tasks_icon.png" alt="Задания" id="tasksButton">
+        <img src="images/wallet_icon.png" alt="Кошелек" id="walletButton">
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
