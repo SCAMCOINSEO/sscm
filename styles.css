@@ -20,6 +20,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    height: 100%;
 }
 
 .header {
@@ -56,22 +57,21 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 300px;
+    height: 60%; /* Занимаем 60% высоты экрана */
 }
 
 .button-wrapper {
     position: relative;
     width: 100%;
+    height: calc(33.33% - 2px); /* Каждая кнопка занимает 33.33% высоты контейнера, учитывая границы */
+    margin-bottom: 2px; /* Промежуток между кнопками */
 }
 
 .button {
     cursor: pointer;
     width: 100%;
-    transition: box-shadow 0.9s; /* Замедление анимации */
-}
-
-.button + .button {
-    margin-top: -4px; /* Убираем промежуток между кнопками */
+    height: 100%;
+    transition: box-shadow 0.9s;
 }
 
 .transparent-text {
@@ -85,19 +85,19 @@ body {
 }
 
 .button:active {
-    transform: scale(0.97); /* Уменьшаем отдачу */
+    transform: scale(0.97);
 }
 
 .button:hover.staking {
-    box-shadow: 0 0 30px blue; /* Усиливаем неон */
+    box-shadow: 0 0 30px blue;
 }
 
 .button:hover.clicker {
-    box-shadow: 0 0 30px green; /* Усиливаем неон */
+    box-shadow: 0 0 30px green;
 }
 
 .button:hover.pass {
-    box-shadow: 0 0 30px yellow; /* Усиливаем неон */
+    box-shadow: 0 0 30px yellow;
 }
 
 .rank-table {
@@ -190,24 +190,27 @@ body {
 .earnings-modal button {
     padding: 10px 20px;
     cursor: pointer;
-    margin: 10px;
 }
 
 .earned-animation {
     display: none;
-    color: green;
-    font-size: 1.5em;
     position: absolute;
-    top: 70%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: yellow;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
 }
 
-.modal .close {
+.close {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .footer {
@@ -224,7 +227,7 @@ body {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    transition: box-shadow 0.9s; /* Замедление анимации */
+    transition: box-shadow 0.9s;
 }
 
 .footer img:hover {
@@ -241,5 +244,5 @@ body {
 }
 
 .rank, .title {
-    animation: neon 3s infinite; /* Замедление анимации */
+    animation: neon 3s infinite;
 }
