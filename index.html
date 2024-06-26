@@ -3,62 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staking Game</title>
+    <title>Сам Коин</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Staking Game</h1>
-        <h2 id="rank" class="rank">Ранг 1</h2>
-        <h3 id="score">0 монет</h3>
-        <button id="clickerButton" class="clicker-button">Кликер</button>
-        <button id="passButton" class="pass-button">PASS</button>
-        <button id="stakingButton" class="staking-button">
-            Стейкинг <span id="stakingEarnings">0</span> монет
-        </button>
-
-        <!-- Модальное окно стейкинга -->
-        <div id="stakingModal" class="modal">
-            <div class="modal-content">
-                <span id="closeStakingModal" class="close">&times;</span>
-                <h2>Стейкинг</h2>
-                <p>Вы застейкали: <span id="stakedAmount">0</span> монет</p>
-                <p>Прибыль в минуту: <span id="stakingProfit">0</span> монет</p>
-                <input type="number" id="stakeAmount" placeholder="Количество монет">
-                <button id="stakeButton">Застейкать</button>
-                <button id="claimStakingButton">Забрать</button>
+        <div class="header">
+            <img src="images/title.png" alt="Сам Коин" class="title">
+            <div class="rank" id="rank">Ранг 1</div>
+        </div>
+        <div class="score" id="score">0 монет</div>
+        <div class="button-container">
+            <div class="button-wrapper">
+                <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton">
+                <span id="stakingEarnings" class="transparent-text">0 монет</span>
+            </div>
+            <div class="button-wrapper">
+                <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton">
+            </div>
+            <div class="button-wrapper">
+                <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton">
             </div>
         </div>
-
-        <!-- Модальное окно пасса -->
-        <div id="passModal" class="modal">
-            <div class="modal-content">
-                <span id="closePassModal" class="close">&times;</span>
-                <h2>PASS</h2>
-            </div>
+        <div class="rank-table" id="rankTable">
+            <table>
+                <tr>
+                    <th>Ранг</th>
+                    <th>Монеты для повышения</th>
+                    <th>Вознаграждение</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>100</td>
+                    <td>10 монет</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>1000</td>
+                    <td>100 монет</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>10000</td>
+                    <td>1000 монет</td>
+                </tr>
+                <!-- Добавьте остальные ранги здесь -->
+            </table>
         </div>
-
-        <!-- Модальное окно заработка -->
-        <div id="earningsModal" class="modal">
-            <div class="modal-content">
-                <span id="closeEarningsModal" class="close">&times;</span>
-                <h2>Вы получили</h2>
-                <p id="earnedAmount">0</p>
-                <button id="claimEarningsButton">Получить</button>
-            </div>
+        <div class="pass-modal" id="passModal">
+            PASS
+            <span class="close" id="closePassModal">&times;</span>
         </div>
-
-        <!-- Анимация заработка -->
-        <div id="earnedAnimation" class="earned-animation">
-            <p>Вы получили <span id="earnedAnimationAmount">0</span> монет!</p>
+        <div class="staking-modal" id="stakingModal">
+            <h2>Стейкинг</h2>
+            <p>Заморозьте свои монеты и получайте 10% от суммы в час.</p>
+            <p>Вы застейкали: <span id="stakedAmount">0</span> монет</p>
+            <p>Прибыль в минуту: <span id="stakingProfit">0</span> монет</p>
+            <input type="number" id="stakeAmount" placeholder="Введите сумму для стейкинга">
+            <button id="stakeButton">Застейкать</button>
+            <span class="close" id="closeStakingModal">&times;</span>
         </div>
-
-        <!-- Пунктуационное меню -->
-        <div class="footer">
-            <img src="home.png" alt="Home">
-            <img src="settings.png" alt="Settings">
-            <img src="profile.png" alt="Profile">
+        <div class="earnings-modal" id="earningsModal">
+            <h2>Ваш заработок</h2>
+            <p>Вы заработали <span id="earnedAmount">0</span> монет.</p>
+            <button id="claimEarningsButton">Получить</button>
+            <span class="earned-animation" id="earnedAnimation">Вы получили <span id="earnedAnimationAmount">0</span> монет!</span>
         </div>
+    </div>
+    <div class="footer">
+        <img src="images/home_icon.png" alt="Домой" id="homeButton">
+        <img src="images/referrals_icon.png" alt="Рефералы" id="referralsButton">
+        <img src="images/tasks_icon.png" alt="Задания" id="tasksButton">
+        <img src="images/wallet_icon.png" alt="Кошелек" id="walletButton">
     </div>
     <script src="scripts.js"></script>
 </body>
