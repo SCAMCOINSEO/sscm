@@ -1,119 +1,63 @@
-let score = 0;
-let rank = 1;
-let stakedAmount = 0; // Количество застейканных монет
-let stakingEarnings = 0; // Монеты, которые можно собрать
-let stakingClickCount = 0; // Счетчик нажатий для открытия окна стейкинга
-const scoreElement = document.getElementById('score');
-const rankElement = document.getElementById('rank');
-const rankTable = document.getElementById('rankTable');
-const clickerButton = document.getElementById('clickerButton');
-const container = document.querySelector('.container');
-const passButton = document.getElementById('passButton');
-const passModal = document.getElementById('passModal');
-const closePassModal = document.getElementById('closePassModal');
-const stakingButton = document.getElementById('stakingButton');
-const stakingModal = document.getElementById('stakingModal');
-const closeStakingModal = document.getElementById('closeStakingModal');
-const stakeButton = document.getElementById('stakeButton');
-const claimStakingButton = document.getElementById('claimStakingButton');
-const stakeAmount = document.getElementById('stakeAmount');
-const stakedAmountElement = document.getElementById('stakedAmount');
-const stakingProfitElement = document.getElementById('stakingProfit');
-const stakingEarningsElement = document.getElementById('stakingEarnings');
-const earningsModal = document.getElementById('earningsModal');
-const claimEarningsButton = document.getElementById('claimEarningsButton');
-const earnedAmountElement = document.getElementById('earnedAmount');
-const earnedAnimation = document.getElementById('earnedAnimation');
-const earnedAnimationAmount = document.getElementById('earnedAnimationAmount');
-const closeEarningsModal = document.getElementById('closeEarningsModal');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staking Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Staking Game</h1>
+        <h2 id="rank" class="rank">Ранг 1</h2>
+        <h3 id="score">0 монет</h3>
+        <button id="clickerButton" class="clicker-button">Кликер</button>
+        <button id="passButton" class="pass-button">PASS</button>
+        <button id="stakingButton" class="staking-button">Стейкинг <span id="stakingEarnings">0</span> монет</button>
 
-clickerButton.addEventListener('click', () => {
-    score++;
-    updateScore();
-});
+        <!-- Модальное окно стейкинга -->
+        <div id="stakingModal" class="modal">
+            <div class="modal-content">
+                <span id="closeStakingModal" class="close">&times;</span>
+                <h2>Стейкинг</h2>
+                <p>Вы застейкали: <span id="stakedAmount">0</span> монет</p>
+                <p>Прибыль в минуту: <span id="stakingProfit">0</span> монет</p>
+                <input type="number" id="stakeAmount" placeholder="Количество монет">
+                <button id="stakeButton">Застейкать</button>
+                <button id="claimStakingButton">Забрать</button>
+            </div>
+        </div>
 
-passButton.addEventListener('click', () => {
-    passModal.style.display = 'block';
-});
+        <!-- Модальное окно пасса -->
+        <div id="passModal" class="modal">
+            <div class="modal-content">
+                <span id="closePassModal" class="close">&times;</span>
+                <h2>PASS</h2>
+            </div>
+        </div>
 
-closePassModal.addEventListener('click', () => {
-    passModal.style.display = 'none';
-});
+        <!-- Модальное окно заработка -->
+        <div id="earningsModal" class="modal">
+            <div class="modal-content">
+                <span id="closeEarningsModal" class="close">&times;</span>
+                <h2>Вы получили</h2>
+                <p id="earnedAmount">0</p>
+                <button id="claimEarningsButton">Получить</button>
+            </div>
+        </div>
 
-stakingButton.addEventListener('mousedown', () => {
-    stakingClickCount++;
-    if (stakingClickCount === 3) {
-        openStakingModal();
-        stakingClickCount = 0;
-    }
-});
+        <!-- Анимация заработка -->
+        <div id="earnedAnimation" class="earned-animation">
+            <p>Вы получили <span id="earnedAnimationAmount">0</span> монет!</p>
+        </div>
 
-closeStakingModal.addEventListener('click', () => {
-    stakingModal.style.display = 'none';
-});
-
-stakeButton.addEventListener('click', () => {
-    const amount = parseInt(stakeAmount.value);
-    if (!isNaN(amount) && amount > 0 && amount <= score) {
-        stakedAmount += amount;
-        score -= amount;
-        stakingEarnings += amount;
-        updateScore();
-        updateStaking();
-    }
-});
-
-claimStakingButton.addEventListener('click', () => {
-    score += stakingEarnings;
-    stakingEarnings = 0;
-    updateScore();
-    updateStaking();
-    showEarnings(stakingEarnings);
-});
-
-claimEarningsButton.addEventListener('click', () => {
-    earningsModal.style.display = 'none';
-});
-
-closeEarningsModal.addEventListener('click', () => {
-    earningsModal.style.display = 'none';
-});
-
-function updateScore() {
-    scoreElement.textContent = `${score} монет`;
-}
-
-function updateStaking() {
-    stakedAmountElement.textContent = stakedAmount;
-    stakingProfitElement.textContent = (stakedAmount * 0.1).toFixed(2);
-    stakingEarningsElement.textContent = stakingEarnings;
-}
-
-function openStakingModal() {
-    stakingModal.style.display = 'block';
-}
-
-function showEarnings(amount) {
-    earnedAmountElement.textContent = amount;
-    earnedAnimationAmount.textContent = amount;
-    earningsModal.style.display = 'block';
-    earnedAnimation.style.display = 'block';
-    setTimeout(() => {
-        earnedAnimation.style.display = 'none';
-    }, 3000);
-}
-
-// Логика начисления прибыли каждую минуту
-setInterval(() => {
-    const profit = stakedAmount * 0.1;
-    score += profit;
-    stakingEarnings += profit;
-    updateScore();
-    updateStaking();
-}, 60000);
-
-// При заходе в игру
-document.addEventListener('DOMContentLoaded', () => {
-    updateScore();
-    updateStaking();
-});
+        <!-- Пунктуационное меню -->
+        <div class="footer">
+            <img src="home.png" alt="Home">
+            <img src="settings.png" alt="Settings">
+            <img src="profile.png" alt="Profile">
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
