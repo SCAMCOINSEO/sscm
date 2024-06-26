@@ -13,6 +13,7 @@ body {
 
 .container {
     text-align: center;
+    width: 100%;
 }
 
 .title {
@@ -36,16 +37,17 @@ body {
 }
 
 .clicker-button, .pass-button, .staking-button {
-    width: 90%;
-    max-width: 300px;
-    height: 40px;
-    margin: 5px 0;
+    width: 95%;
+    height: 60px;
+    margin: 0;
     font-size: 1.2em;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     color: white;
     transition: all 0.3s ease;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .clicker-button {
@@ -89,7 +91,7 @@ body {
 .modal-content {
     background-color: yellow;
     color: black;
-    margin: 10% auto;
+    margin: 20% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
