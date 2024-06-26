@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .header {
@@ -26,23 +27,21 @@ body {
     flex-direction: column;
     align-items: center;
     text-shadow: 0 0 10px yellow;
+    margin-bottom: 10px;
 }
 
 .title {
     width: 80%;
     max-width: 300px;
     height: auto;
-    margin-top: 10px;
 }
 
 .rank {
-    width: 80%;
-    max-width: 300px;
-    margin-top: 10px;
     font-size: 1.5em;
     font-weight: bold;
     color: yellow;
     text-shadow: 0 0 10px yellow;
+    margin-top: 5px;
 }
 
 .score {
@@ -56,18 +55,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 300px;
 }
 
 .button-wrapper {
     position: relative;
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
 }
 
 .button {
     cursor: pointer;
     width: 100%;
-    margin: 0;
     transition: box-shadow 0.9s; /* Замедление анимации */
 }
 
