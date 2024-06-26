@@ -1,7 +1,8 @@
 let score = 0;
 let rank = 1;
-let stakedAmount = 0; // Добавлено значение застейканных монет
-let stakingClickCount = 0; // Добавлена переменная для подсчета нажатий
+let stakedAmount = 0; // Количество застейканных монет
+let stakingEarnings = 0; // Монеты, которые можно собрать
+let stakingClickCount = 0; // Счетчик нажатий для открытия окна стейкинга
 const scoreElement = document.getElementById('score');
 const rankElement = document.getElementById('rank');
 const rankTable = document.getElementById('rankTable');
@@ -15,7 +16,9 @@ const stakingModal = document.getElementById('stakingModal');
 const closeStakingModal = document.getElementById('closeStakingModal');
 const stakeButton = document.getElementById('stakeButton');
 const stakeAmount = document.getElementById('stakeAmount');
-const stakedAmountElement = document.getElementById('stakedAmount'); // Элемент для отображения застейканных монет
+const stakedAmountElement = document.getElementById('stakedAmount');
+const stakingProfitElement = document.getElementById('stakingProfit');
+const stakingEarningsElement = document.getElementById('stakingEarnings');
 const earningsModal = document.getElementById('earningsModal');
 const claimEarningsButton = document.getElementById('claimEarningsButton');
 const earnedAmountElement = document.getElementById('earnedAmount');
@@ -39,7 +42,12 @@ window.onload = () => {
         stakedAmount = parseInt(localStorage.getItem('stakedAmount'), 10);
         stakedAmountElement.textContent = stakedAmount;
     }
+    if (localStorage.getItem('stakingEarnings')) {
+        stakingEarnings = parseInt(localStorage.getItem('stakingEarnings'), 10);
+        stakingEarningsElement.textContent = stakingEarnings + ' монет';
+    }
     showEarningsModal();
+    updateStakingEarnings();
 };
 
 clickerButton.addEventListener('click', () => {
@@ -90,6 +98,7 @@ stakingButton.addEventListener('mousedown', () => {
         stakingModal.style.display = 'block';
         stakingClickCount = 0; // Сбрасываем счетчик после открытия окна
     }
+    stakingProfitElement.textContent = (stakedAmount * 0.1 / 60).toFixed(2); // Обновление прибыли в минуту
 });
 
 closeStakingModal.addEventListener('click', () => {
@@ -119,14 +128,24 @@ stakeButton.addEventListener('click', () => {
     }, 3000);
 
     stakingModal.style.display = 'none';
+    stakingProfitElement.textContent = (stakedAmount * 0.1 / 60).toFixed(2); // Обновление прибыли в минуту
 });
+
+function updateStakingEarnings() {
+    const earnings = Math.floor(stakedAmount * 0.1 / 60);
+    stakingEarnings += earnings;
+    stakingEarningsElement.textContent = stakingEarnings + ' монет';
+    localStorage.setItem('stakingEarnings', stakingEarnings);
+}
+
+setInterval(updateStakingEarnings, 60000); // Обновление заработка каждую минуту
 
 function showEarningsModal() {
     const lastVisit = localStorage.getItem('lastVisit');
     const now = new Date().getTime();
     if (lastVisit) {
-        const elapsedHours = (now - lastVisit) / 3600000;
-        const earnings = Math.floor(elapsedHours * stakedAmount * 0.1);
+        const elapsedMinutes = (now - lastVisit) / 60000;
+        const earnings = Math.floor(elapsedMinutes * stakedAmount * 0.1 / 60);
         earnedAmountElement.textContent = earnings;
         localStorage.setItem('earnedAmount', earnings);
     }
@@ -146,26 +165,4 @@ claimEarningsButton.addEventListener('click', () => {
     setTimeout(() => {
         earnedAnimation.style.display = 'none';
     }, 3000);
-});
-
-restakeEarningsButton.addEventListener('click', () => {
-    const earnings = parseInt(earnedAmountElement.textContent, 10);
-    if (earnings > 0) {
-        score += earnings;
-        stakedAmount += earnings;
-        scoreElement.textContent = score + ' монет';
-        stakedAmountElement.textContent = stakedAmount;
-        localStorage.setItem('score', score);
-        localStorage.setItem('stakedAmount', stakedAmount);
-
-        const restakeAnimation = document.createElement('div');
-        restakeAnimation.classList.add('restake-animation');
-        restakeAnimation.textContent = `Вы успешно застейкали ${earnings} монет.`;
-        container.appendChild(restakeAnimation);
-
-        setTimeout(() => {
-            restakeAnimation.remove();
-        }, 3000);
-    }
-    earningsModal.style.display = 'none';
 });
