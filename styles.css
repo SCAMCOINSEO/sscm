@@ -58,16 +58,31 @@ body {
     align-items: center;
 }
 
-.button {
-    cursor: pointer;
+.button-wrapper {
+    position: relative;
     width: 80%;
     max-width: 300px;
+}
+
+.button {
+    cursor: pointer;
+    width: 100%;
     margin: 0;
     transition: box-shadow 0.9s; /* Замедление анимации */
 }
 
 .button + .button {
     margin-top: -4px; /* Убираем промежуток между кнопками */
+}
+
+.transparent-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1em;
+    pointer-events: none;
 }
 
 .button:active {
@@ -179,33 +194,53 @@ body {
     margin: 10px;
 }
 
+.earned-animation {
+    display: none;
+    color: green;
+    font-size: 1.5em;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .modal .close {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 1.5em;
     cursor: pointer;
 }
 
 .footer {
-    width: 100%;
     display: flex;
     justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 10px 0;
-    box-shadow: 0 0 30px yellow;
-    animation: neon-border 6s infinite alternate; /* Замедление анимации */
 }
 
 .footer img {
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: box-shadow 0.9s; /* Замедление анимации */
 }
 
-@keyframes neon-border {
-    0% {
-        box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow, 0 0 70px yellow;
+.footer img:hover {
+    box-shadow: 0 0 10px yellow;
+}
+
+@keyframes neon {
+    0%, 100% {
+        text-shadow: 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px red, 0 0 70px red, 0 0 80px red;
     }
-    100% {
-        box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px red, 0 0 60px red, 0 0 70px red, 0 0 80px red;
+    50% {
+        text-shadow: 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
     }
+}
+
+.rank, .title {
+    animation: neon 3s infinite; /* Замедление анимации */
 }
