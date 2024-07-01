@@ -4,48 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сам Коин</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение файла стилей CSS -->
 </head>
 <body>
     <div class="container">
-        <!-- Главная страница (без изменений) -->
+        <!-- Главная страница -->
         <div id="homePage" class="page active">
             <div class="header">
-                <img src="images/title.png" alt="Сам Коин" class="title">
-                <div class="rank" id="rank">Ранг 1</div>
+                <img src="images/title.png" alt="Сам Коин" class="title"> <!-- Заголовок с логотипом -->
+                <div class="rank" id="rank">Ранг 1</div> <!-- Элемент для отображения ранга -->
             </div>
-            <div class="score" id="score">0 монет</div>
+            <div class="score" id="score">0 монет</div> <!-- Элемент для отображения количества монет -->
             <div class="button-container">
+                <!-- Контейнер для кнопок -->
                 <div class="button-wrapper">
-                    <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton">
-                    <span id="stakingEarnings" class="transparent-text">0 монет</span>
+                    <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton"> <!-- Кнопка для перехода на страницу стейкинга -->
+                    <span id="stakingEarnings" class="transparent-text">0 монет</span> <!-- Отображение доходов от стейкинга -->
                 </div>
                 <div class="button-wrapper">
-                    <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton">
+                    <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton"> <!-- Кнопка для перехода на страницу кликера -->
                 </div>
                 <div class="button-wrapper">
-                    <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton">
+                    <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton"> <!-- Кнопка для перехода на страницу пасса -->
                 </div>
             </div>
         </div>
 
-        <!-- Стейкинг страница -->
+        <!-- Страница стейкинга -->
         <div id="stakingPage" class="page">
-            <h2>Стейкинг</h2>
+            <h2>Стейкинг</h2> <!-- Заголовок страницы стейкинга -->
             <div class="staking-container">
-                <p>Инвестировать свои монеты под 10% в час</p>
-                <input type="number" id="stakingAmount" placeholder="Количество монет">
-                <button id="stakeButton">Инвестировать</button>
-                <p>Текущие доходы от стейкинга: <span id="currentStakingEarnings">0 монет</span></p>
-                <button id="reinvestButton">Реинвестировать</button>
+                <p>Инвестировать свои монеты под 10% в час</p> <!-- Описание стейкинга -->
+                <input type="number" id="stakingAmount" placeholder="Количество монет"> <!-- Поле для ввода суммы стейкинга -->
+                <button id="stakeButton">Инвестировать</button> <!-- Кнопка для инвестирования -->
+                <p>Текущие доходы от стейкинга: <span id="currentStakingEarnings">0 монет</span></p> <!-- Отображение текущих доходов от стейкинга -->
+                <button id="reinvestButton">Реинвестировать</button> <!-- Кнопка для реинвестирования -->
             </div>
         </div>
         
         <!-- Страница заданий -->
         <div id="tasksPage" class="page">
-            <h2>Задания</h2>
+            <h2>Задания</h2> <!-- Заголовок страницы заданий -->
             <ul id="tasksList">
-                <li>Подписаться на Telegram канал <button class="taskButton">Выполнить</button></li>
+                <li>
+                    Подписаться на Telegram канал 
+                    <button class="taskButton" onclick="openTaskMenu(this)">Выполнить</button> <!-- Кнопка выполнения задания -->
+                    <div class="task-menu">
+                        <a href="https://t.me/scamcoinofficia" target="_blank" class="option">Перейти</a> <!-- Ссылка на Telegram канал -->
+                    </div>
+                </li>
                 <li>Посетить сайт <button class="taskButton">Выполнить</button></li>
                 <!-- Добавьте остальные задания здесь -->
             </ul>
@@ -53,30 +60,30 @@
         
         <!-- Страница рефералов -->
         <div id="referralsPage" class="page">
-            <h2>Реферальная система</h2>
+            <h2>Реферальная система</h2> <!-- Заголовок страницы рефералов -->
             <div class="referral-rewards">
-                <h3>Вознаграждения за ранги</h3>
+                <h3>Вознаграждения за ранги</h3> <!-- Заголовок секции вознаграждений -->
                 <p>Ранг 1: 10 монет</p>
                 <p>Ранг 2: 100 монет</p>
                 <!-- Добавьте остальные ранги и вознаграждения здесь -->
             </div>
             <div class="referral-income">
-                <h3>Общий доход от друзей</h3>
-                <p id="totalReferralIncome">0 монет</p>
+                <h3>Общий доход от друзей</h3> <!-- Заголовок секции общего дохода -->
+                <p id="totalReferralIncome">0 монет</p> <!-- Отображение общего дохода от друзей -->
             </div>
         </div>
         
         <!-- Страница кошелька -->
         <div id="walletPage" class="page">
-            <h2>Кошелек</h2>
+            <h2>Кошелек</h2> <!-- Заголовок страницы кошелька -->
             <div class="wallet-balance">
-                <h3>Ваш баланс</h3>
-                <p id="walletBalance">0 монет</p>
+                <h3>Ваш баланс</h3> <!-- Заголовок секции баланса -->
+                <p id="walletBalance">0 монет</p> <!-- Отображение текущего баланса -->
             </div>
             <div class="promo-code">
-                <h3>Введите промокод</h3>
-                <input type="text" id="promoCodeInput" placeholder="Промокод">
-                <button id="redeemPromoCodeButton">Активировать</button>
+                <h3>Введите промокод</h3> <!-- Заголовок секции ввода промокода -->
+                <input type="text" id="promoCodeInput" placeholder="Промокод"> <!-- Поле для ввода промокода -->
+                <button id="redeemPromoCodeButton">Активировать</button> <!-- Кнопка для активации промокода -->
             </div>
         </div>
     </div>
@@ -84,20 +91,20 @@
     <!-- Меню для прокачки тапа -->
     <div id="upgradeMenu" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeUpgradeMenu">&times;</span>
-            <h2>Улучшить кликер</h2>
-            <p>Улучшение стоит 10,000 монет. После улучшения каждый клик будет приносить вдвое больше монет.</p>
-            <button id="upgradeClickerButton">Улучшить за 10,000 монет</button>
+            <span class="close" id="closeUpgradeMenu">&times;</span> <!-- Кнопка для закрытия модального окна -->
+            <h2>Улучшить кликер</h2> <!-- Заголовок модального окна -->
+            <p>Улучшение стоит 10,000 монет. После улучшения каждый клик будет приносить вдвое больше монет.</p> <!-- Описание улучшения -->
+            <button id="upgradeClickerButton">Улучшить за 10,000 монет</button> <!-- Кнопка для улучшения кликера -->
         </div>
     </div>
 
     <!-- Футер с навигацией -->
     <div class="footer">
-        <img src="images/home_icon.png" alt="Домой" id="homeButton">
-        <img src="images/tasks_icon.png" alt="Задания" id="tasksButton">
-        <img src="images/referrals_icon.png" alt="Рефералы" id="referralsButton">
-        <img src="images/wallet_icon.png" alt="Кошелек" id="walletButton">
+        <img src="images/home_icon.png" alt="Домой" id="homeButton"> <!-- Кнопка для перехода на главную страницу -->
+        <img src="images/tasks_icon.png" alt="Задания" id="tasksButton"> <!-- Кнопка для перехода на страницу заданий -->
+        <img src="images/referrals_icon.png" alt="Рефералы" id="referralsButton"> <!-- Кнопка для перехода на страницу рефералов -->
+        <img src="images/wallet_icon.png" alt="Кошелек" id="walletButton"> <!-- Кнопка для перехода на страницу кошелька -->
     </div>
-    <script src="scripts.js"></script>
+    <script src="scripts.js"></script> <!-- Подключение файла JavaScript -->
 </body>
 </html>
