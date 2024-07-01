@@ -1,216 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сам Коин</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Главная страница (без изменений) -->
+        <div id="homePage" class="page active">
+            <div class="header">
+                <img src="images/title.png" alt="Сам Коин" class="title">
+                <div class="rank" id="rank">Ранг 1</div>
+            </div>
+            <div class="score" id="score">0 монет</div>
+            <div class="button-container">
+                <div class="button-wrapper">
+                    <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton">
+                    <span id="stakingEarnings" class="transparent-text">0 монет</span>
+                </div>
+                <div class="button-wrapper">
+                    <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton">
+                </div>
+                <div class="button-wrapper">
+                    <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton">
+                </div>
+            </div>
+        </div>
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
-    background-color: #333; /* Более светлый черный фон */
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-}
+        <!-- Стейкинг страница -->
+        <div id="stakingPage" class="page">
+            <h2>Стейкинг</h2>
+            <div class="staking-container">
+                <p>Инвестировать свои монеты под 10% в час</p>
+                <input type="number" id="stakingAmount" placeholder="Количество монет">
+                <button id="stakeButton">Инвестировать</button>
+                <p>Текущие доходы от стейкинга: <span id="currentStakingEarnings">0 монет</span></p>
+                <button id="reinvestButton">Реинвестировать</button>
+            </div>
+        </div>
+        
+        <!-- Страница заданий -->
+        <div id="tasksPage" class="page">
+            <h2>Задания</h2>
+            <ul id="tasksList">
+                <li>Подписаться на Telegram канал <button class="taskButton">Выполнить</button></li>
+                <li>Посетить сайт <button class="taskButton">Выполнить</button></li>
+                <!-- Добавьте остальные задания здесь -->
+            </ul>
+        </div>
+        
+        <!-- Страница рефералов -->
+        <div id="referralsPage" class="page">
+            <h2>Реферальная система</h2>
+            <div class="referral-rewards">
+                <h3>Вознаграждения за ранги</h3>
+                <p>Ранг 1: 10 монет</p>
+                <p>Ранг 2: 100 монет</p>
+                <!-- Добавьте остальные ранги и вознаграждения здесь -->
+            </div>
+            <div class="referral-income">
+                <h3>Общий доход от друзей</h3>
+                <p id="totalReferralIncome">0 монет</p>
+            </div>
+        </div>
+        
+        <!-- Страница кошелька -->
+        <div id="walletPage" class="page">
+            <h2>Кошелек</h2>
+            <div class="wallet-balance">
+                <h3>Ваш баланс</h3>
+                <p id="walletBalance">0 монет</p>
+            </div>
+            <div class="promo-code">
+                <h3>Введите промокод</h3>
+                <input type="text" id="promoCodeInput" placeholder="Промокод">
+                <button id="redeemPromoCodeButton">Активировать</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Меню для прокачки тапа -->
+    <div id="upgradeMenu" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeUpgradeMenu">&times;</span>
+            <h2>Улучшить кликер</h2>
+            <p>Улучшение стоит 10,000 монет. После улучшения каждый клик будет приносить вдвое больше монет.</p>
+            <button id="upgradeClickerButton">Улучшить за 10,000 монет</button>
+        </div>
+    </div>
 
-.container {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 100%;
-}
-
-.page {
-    display: none; /* Скрываем страницы по умолчанию */
-    width: 100%;
-    height: calc(100vh - 70px); /* Учитываем высоту футера */
-    overflow-y: auto;
-}
-
-.page.active {
-    display: block; /* Показываем активную страницу */
-}
-
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-shadow: 0 0 10px yellow;
-    margin-bottom: 10px;
-}
-
-.title {
-    width: 80%;
-    max-width: 300px;
-    height: auto;
-}
-
-.rank {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: yellow;
-    text-shadow: 0 0 10px yellow;
-    margin-top: 5px;
-}
-
-.score {
-    font-size: 2em;
-    color: yellow;
-    text-shadow: 0 0 10px yellow;
-    margin: 10px 0;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 60%; /* Занимаем 60% высоты экрана */
-}
-
-.button-wrapper {
-    position: relative;
-    width: 100%;
-    height: calc(33.33% - 2px); /* Каждая кнопка занимает 33.33% высоты контейнера, учитывая границы */
-    margin-bottom: 2px; /* Промежуток между кнопками */
-}
-
-.button {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    transition: box-shadow 0.9s;
-}
-
-.transparent-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1em;
-    pointer-events: none;
-}
-
-.button:active {
-    transform: scale(0.97);
-}
-
-.button:hover.staking {
-    box-shadow: 0 0 30px blue;
-}
-
-.button:hover.clicker {
-    box-shadow: 0 0 30px green;
-}
-
-.button:hover.pass {
-    box-shadow: 0 0 30px yellow;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
-}
-
-.footer img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: box-shadow 0.9s;
-}
-
-.footer img:hover {
-    box-shadow: 0 0 10px yellow;
-}
-
-h2 {
-    color: #fff;
-    text-shadow: 0 0 10px yellow;
-}
-
-.page {
-    padding: 20px;
-    background-color: #444; /* Более светлый фон для страниц */
-    border-radius: 10px;
-    box-shadow: 0 0 20px #000;
-}
-
-.page h3 {
-    color: #fff;
-    text-shadow: 0 0 5px yellow;
-}
-
-input, button {
-    width: 80%;
-    max-width: 300px;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-button {
-    background-color: yellow;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.5s;
-}
-
-button:hover {
-    background-color: gold;
-}
-
-/* Модальное окно для улучшения кликера */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.modal-content {
-    background-color: #444;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 20px #000;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-button:disabled {
-    background-color: gray;
-    cursor: not-allowed;
-}
+    <!-- Футер с навигацией -->
+    <div class="footer">
+        <img src="images/home_icon.png" alt="Домой" id="homeButton">
+        <img src="images/tasks_icon.png" alt="Задания" id="tasksButton">
+        <img src="images/referrals_icon.png" alt="Рефералы" id="referralsButton">
+        <img src="images/wallet_icon.png" alt="Кошелек" id="walletButton">
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
