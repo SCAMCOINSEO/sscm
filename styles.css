@@ -1,216 +1,238 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Основные стили для всего тела */
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
+    display: flex; /* Включаем flexbox для body */
+    flex-direction: column; /* Выравнивание элементов по вертикали */
+    justify-content: flex-start; /* Выравнивание по началу страницы */
+    align-items: center; /* Центровка элементов по горизонтали */
+    height: 100vh; /* Высота 100% экрана */
     background-color: #333; /* Более светлый черный фон */
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+    color: #fff; /* Белый цвет текста */
+    font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
 }
 
+/* Стили для основного контейнера */
 .container {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 100%;
+    text-align: center; /* Текст по центру */
+    width: 100%; /* Ширина 100% */
+    display: flex; /* Включаем flexbox */
+    flex-direction: column; /* Элементы располагаются по вертикали */
+    align-items: center; /* Центровка элементов по горизонтали */
+    position: relative; /* Относительное позиционирование */
+    height: 100%; /* Высота 100% */
 }
 
+/* Стили для страниц */
 .page {
     display: none; /* Скрываем страницы по умолчанию */
-    width: 100%;
-    height: calc(100vh - 70px); /* Учитываем высоту футера */
-    overflow-y: auto;
+    width: 100%; /* Ширина 100% */
+    height: calc(100vh - 70px); /* Высота с учетом футера */
+    overflow-y: auto; /* Вертикальная прокрутка */
 }
 
+/* Стили для активной страницы */
 .page.active {
     display: block; /* Показываем активную страницу */
 }
 
+/* Стили для заголовка */
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-shadow: 0 0 10px yellow;
-    margin-bottom: 10px;
+    display: flex; /* Включаем flexbox */
+    flex-direction: column; /* Элементы располагаются по вертикали */
+    align-items: center; /* Центровка элементов по горизонтали */
+    text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
+    margin-bottom: 10px; /* Нижний отступ */
 }
 
+/* Стили для логотипа */
 .title {
-    width: 80%;
-    max-width: 300px;
-    height: auto;
+    width: 80%; /* Ширина 80% */
+    max-width: 300px; /* Максимальная ширина 300px */
+    height: auto; /* Автоматическая высота */
 }
 
+/* Стили для ранга */
 .rank {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: yellow;
-    text-shadow: 0 0 10px yellow;
-    margin-top: 5px;
+    font-size: 1.5em; /* Размер шрифта 1.5em */
+    font-weight: bold; /* Жирный шрифт */
+    color: yellow; /* Желтый цвет текста */
+    text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
+    margin-top: 5px; /* Верхний отступ */
 }
 
+/* Стили для счета */
 .score {
-    font-size: 2em;
-    color: yellow;
-    text-shadow: 0 0 10px yellow;
-    margin: 10px 0;
+    font-size: 2em; /* Размер шрифта 2em */
+    color: yellow; /* Желтый цвет текста */
+    text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
+    margin: 10px 0; /* Вертикальные отступы */
 }
 
+/* Стили для контейнера кнопок */
 .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 60%; /* Занимаем 60% высоты экрана */
+    display: flex; /* Включаем flexbox */
+    flex-direction: column; /* Элементы располагаются по вертикали */
+    align-items: center; /* Центровка элементов по горизонтали */
+    width: 100%; /* Ширина 100% */
+    height: 60%; /* Высота 60% */
 }
 
+/* Стили для обертки кнопок */
 .button-wrapper {
-    position: relative;
-    width: 100%;
-    height: calc(33.33% - 2px); /* Каждая кнопка занимает 33.33% высоты контейнера, учитывая границы */
-    margin-bottom: 2px; /* Промежуток между кнопками */
+    position: relative; /* Относительное позиционирование */
+    width: 100%; /* Ширина 100% */
+    height: calc(33.33% - 2px); /* Высота с учетом границ */
+    margin-bottom: 2px; /* Нижний отступ */
 }
 
+/* Стили для кнопок */
 .button {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    transition: box-shadow 0.9s;
+    cursor: pointer; /* Указатель при наведении */
+    width: 100%; /* Ширина 100% */
+    height: 100%; /* Высота 100% */
+    transition: box-shadow 0.9s; /* Плавный переход для теней */
 }
 
+/* Стили для прозрачного текста */
 .transparent-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1em;
-    pointer-events: none;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Расположение по центру сверху */
+    left: 50%; /* Расположение по центру слева */
+    transform: translate(-50%, -50%); /* Центровка элемента */
+    color: rgba(255, 255, 255, 0.5); /* Полупрозрачный цвет текста */
+    font-size: 1em; /* Размер шрифта 1em */
+    pointer-events: none; /* Отключение взаимодействия с элементом */
 }
 
+/* Стили для активной кнопки */
 .button:active {
-    transform: scale(0.97);
+    transform: scale(0.97); /* Уменьшение размера при нажатии */
 }
 
+/* Стили для кнопок при наведении */
 .button:hover.staking {
-    box-shadow: 0 0 30px blue;
+    box-shadow: 0 0 30px blue; /* Синяя тень при наведении на кнопку стейкинга */
 }
 
 .button:hover.clicker {
-    box-shadow: 0 0 30px green;
+    box-shadow: 0 0 30px green; /* Зеленая тень при наведении на кнопку кликера */
 }
 
 .button:hover.pass {
-    box-shadow: 0 0 30px yellow;
+    box-shadow: 0 0 30px yellow; /* Желтая тень при наведении на кнопку пасса */
 }
 
+/* Стили для футера */
 .footer {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
+    display: flex; /* Включаем flexbox */
+    justify-content: space-around; /* Равномерное распределение элементов */
+    width: 100%; /* Ширина 100% */
+    position: fixed; /* Фиксированное позиционирование */
+    bottom: 0; /* Расположение снизу */
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+    padding: 10px 0; /* Вертикальные отступы */
 }
 
+/* Стили для иконок в футере */
 .footer img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: box-shadow 0.9s;
+    width: 50px; /* Ширина 50px */
+    height: 50px; /* Высота 50px */
+    cursor: pointer; /* Указатель при наведении */
+    transition: box-shadow 0.9s; /* Плавный переход для теней */
 }
 
 .footer img:hover {
-    box-shadow: 0 0 10px yellow;
+    box-shadow: 0 0 10px yellow; /* Желтая тень при наведении */
 }
 
+/* Стили для заголовков */
 h2 {
-    color: #fff;
-    text-shadow: 0 0 10px yellow;
+    color: #fff; /* Белый цвет текста */
+    text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
 }
 
+/* Дополнительные стили для страниц */
 .page {
-    padding: 20px;
-    background-color: #444; /* Более светлый фон для страниц */
-    border-radius: 10px;
-    box-shadow: 0 0 20px #000;
+    padding: 20px; /* Внутренние отступы */
+    background-color: #444; /* Более светлый черный фон */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 0 20px #000; /* Тень */
 }
 
 .page h3 {
-    color: #fff;
-    text-shadow: 0 0 5px yellow;
+    color: #fff; /* Белый цвет текста */
+    text-shadow: 0 0 5px yellow; /* Тень текста желтого цвета */
 }
 
+/* Стили для ввода и кнопок */
 input, button {
-    width: 80%;
-    max-width: 300px;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    width: 80%; /* Ширина 80% */
+    max-width: 300px; /* Максимальная ширина 300px */
+    padding: 10px; /* Внутренние отступы */
+    margin: 10px 0; /* Вертикальные отступы */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 1em; /* Размер шрифта 1em */
 }
 
+/* Стили для кнопок */
 button {
-    background-color: yellow;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.5s;
+    background-color: yellow; /* Желтый фон */
+    color: #000; /* Черный цвет текста */
+    font-weight: bold; /* Жирный шрифт */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.5s; /* Плавный переход для фона */
 }
 
 button:hover {
-    background-color: gold;
+    background-color: gold; /* Золотой фон при наведении */
 }
 
-/* Модальное окно для улучшения кликера */
+/* Стили для модального окна */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    z-index: 1; /* Высокий z-index для поверх других элементов */
+    left: 0; /* Расположение слева */
+    top: 0; /* Расположение сверху */
+    width: 100%; /* Ширина 100% */
+    height: 100%; /* Высота 100% */
+    overflow: auto; /* Автоматическая прокрутка */
+    background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
 }
 
 .modal-content {
-    background-color: #444;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 20px #000;
+    background-color: #444; /* Более светлый черный фон */
+    margin: 15% auto; /* Центровка по вертикали и горизонтали */
+    padding: 20px; /* Внутренние отступы */
+    border: 1px solid #888; /* Серая граница */
+    width: 80%; /* Ширина 80% */
+    max-width: 400px; /* Максимальная ширина 400px */
+    border-radius: 10px; /* Скругленные углы */
+    text-align: center; /* Текст по центру */
+    box-shadow: 0 0 20px #000; /* Тень */
 }
 
+/* Стили для кнопки закрытия модального окна */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: #aaa; /* Серый цвет текста */
+    float: right; /* Вправо */
+    font-size: 28px; /* Размер шрифта 28px */
+    font-weight: bold; /* Жирный шрифт */
 }
 
 .close:hover,
 .close:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
+    color: #fff; /* Белый цвет текста при наведении */
+    text-decoration: none; /* Убираем подчеркивание */
+    cursor: pointer; /* Указатель при наведении */
 }
 
+/* Стили для неактивной кнопки */
 button:disabled {
-    background-color: gray;
-    cursor: not-allowed;
+    background-color: gray; /* Серый фон */
+    cursor: not-allowed; /* Запрещенный указатель */
 }
