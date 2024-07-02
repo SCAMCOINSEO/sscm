@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clickerButton.addEventListener('mousedown', () => {
         this.holdTimer = setTimeout(() => {
             upgradeMenu.style.display = 'block'; // Открываем меню улучшения через 500мс удержания
-        }, 500);
+        }, 250);
     });
 
     clickerButton.addEventListener('mouseup', () => {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     upgradeClickerButton.addEventListener('click', () => {
         if (coins >= upgradeCost) {
             coins -= upgradeCost; // Уменьшаем количество монет на стоимость улучшения
-            tapMultiplier *= 2; // Увеличиваем множитель кликов вдвое
+            tapMultiplier += 1; // Увеличиваем множитель кликов вдвое
             saveState(); // Сохраняем состояние
             updateCoinDisplay(); // Обновляем отображение монет
             alert('Кликер улучшен! Теперь вы получаете вдвое больше монет за клик.'); // Уведомление об улучшении
