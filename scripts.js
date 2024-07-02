@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clickerButton.addEventListener('mousedown', () => {
         this.holdTimer = setTimeout(() => {
             upgradeMenu.style.display = 'block'; // Открываем меню улучшения через 500мс удержания
-        }, 500);
+        }, 300);
     });
 
     clickerButton.addEventListener('mouseup', () => {
