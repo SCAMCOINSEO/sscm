@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Инициализация состояния
     let coins = 0; // Начальное количество монет
     let tapMultiplier = 1; // Множитель для кликов
-    const upgradeCost = 10000; // Стоимость улучшения кликера
+    const upgradeCost = 100; // Стоимость улучшения кликера
 
     // Элементы интерфейса
     const clickerButton = document.getElementById('clickerButton'); // Кнопка кликера
