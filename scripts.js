@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Инициализация состояния
     let coins = 0; // Начальное количество монет
     let tapMultiplier = 1; // Множитель для кликов
-    const upgradeCost = 100; // Стоимость улучшения кликера
+    const upgradeCost = 10000; // Стоимость улучшения кликера
 
     // Элементы интерфейса
     const clickerButton = document.getElementById('clickerButton'); // Кнопка кликера
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clickerButton.addEventListener('mousedown', () => {
         this.holdTimer = setTimeout(() => {
             upgradeMenu.style.display = 'block'; // Открываем меню улучшения через 500мс удержания
-        }, 5000);
+        }, 500);
     });
 
     clickerButton.addEventListener('mouseup', () => {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     upgradeClickerButton.addEventListener('click', () => {
         if (coins >= upgradeCost) {
             coins -= upgradeCost; // Уменьшаем количество монет на стоимость улучшения
-            tapMultiplier += 1; // Увеличиваем множитель кликов вдвое
+            tapMultiplier *= 2; // Увеличиваем множитель кликов вдвое
             saveState(); // Сохраняем состояние
             updateCoinDisplay(); // Обновляем отображение монет
             alert('Кликер улучшен! Теперь вы получаете вдвое больше монет за клик.'); // Уведомление об улучшении
