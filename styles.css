@@ -7,8 +7,8 @@ body {
     justify-content: flex-start; /* Выравнивание по началу страницы */
     align-items: center; /* Центровка элементов по горизонтали */
     height: 100vh; /* Высота 100% экрана */
-    background-color: #333; /* Более светлый черный фон */
-    color: #fff; /* Белый цвет текста */
+    background-color: #787878; /* Более светлый черный фон */
+    color: #eee; /* Белый цвет текста */
     font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
     margin: 0; /* Убираем отступы */
     padding: 0; /* Убираем внутренние отступы */
@@ -31,6 +31,10 @@ body {
     width: 100%; /* Ширина 100% */
     height: calc(100vh - 100px); /* Высота с учетом футера */
     overflow-y: auto; /* Вертикальная прокрутка */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #787878; /* Более светлый черный фон */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 0 20px #000; /* Тень */
 }
 
 /* Стили для активной страницы */
@@ -56,9 +60,9 @@ body {
 
 /* Стили для ранга */
 .rank {
-    font-size: 4em; /* Размер шрифта 1.5em */
+    font-size: 3.5em; /* Размер шрифта 1.5em */
     font-weight: bold; /* Жирный шрифт */
-    color: yellow; /* Желтый цвет текста */
+    color: #ffcc00; /* Желтый цвет текста */
     text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
     margin-top: 5px; /* Верхний отступ */
 }
@@ -91,8 +95,9 @@ body {
 /* Стили для кнопок */
 .button {
     cursor: pointer; /* Указатель при наведении */
-    width: 100%; /* Ширина 100% */
-    height: 100%; /* Высота 100% */
+    width: 100%; /* Ширина 90% */
+    height: 100%; /* Высота 90% */
+    background-color: #ff6600; /* Новый цвет фона кнопок */
     transition: box-shadow 0.9s; /* Плавный переход для теней */
 }
 
@@ -114,7 +119,7 @@ body {
 
 /* Стили для кнопок при наведении */
 .button:hover.staking {
-    box-shadow: 0 0 50px blue; /* Синяя тень при наведении на кнопку стейкинга */
+    box-shadow: 0 0 50px blue; /* Новый цвет тени при наведении на кнопку стейкинга */
 }
 
 .button:hover.clicker {
@@ -127,41 +132,59 @@ body {
 
 /* Стили для футера */
 .footer {
-    display: flex; /* Включаем flexbox */
+    display: flex; /* Включаем flexbox для футера */
     justify-content: space-around; /* Равномерное распределение элементов */
+    align-items: center; /* Центровка элементов по вертикали */
     width: 100%; /* Ширина 100% */
-    position: fixed; /* Фиксированное позиционирование */
-    bottom: 0; /* Расположение снизу */
-    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
-    padding: 5px 0; /* Вертикальные отступы */
+    padding: 10px; /* Внутренний отступ */
+    background-color: #333; /* Фоновый цвет */
+    box-sizing: border-box; /* Включаем модель коробки */
+}
+
+
+
+/* Стили для футера */
+.footer {
+    display: flex; /* Включаем flexbox для футера */
+    justify-content: space-around; /* Равномерное распределение элементов */
+    align-items: center; /* Центровка элементов по вертикали */
+    width: 100%; /* Ширина 100% */
+    padding: 10px; /* Внутренний отступ */
+    background-color: rgba(255, 255, 255, 0.15); /* Полупрозрачный светлый фон */
+    box-sizing: border-box; /* Включаем модель коробки */
+    border-radius: 15px; /* Скругляем углы футера */
+    margin-bottom: 10px; /* Добавляем нижний отступ */
+    height: 50px; /* Высота футера 50px */
 }
 
 /* Стили для иконок в футере */
 .footer img {
-    width: 75px; /* Ширина 50px */
-    height: 75px; /* Высота 50px */
+    width: 35px; /* Ширина изображений 35px */
+    height: 35px; /* Высота изображений 35px */
     cursor: pointer; /* Указатель при наведении */
+    border: 2px solid #fff; /* Добавляем рамку */
+    border-radius: 10px; /* Скругляем углы иконок */
+    padding: 5px; /* Добавляем внутренний отступ */
+    margin: 0 5px; /* Добавляем расстояние между кнопками */
     transition: box-shadow 0.3s; /* Плавный переход для теней */
+    background-color: rgba(255, 255, 255, 0.4); /* Полупрозрачный фон для изображений */
 }
 
 .footer img:hover {
     box-shadow: 0 0 20px yellow; /* Желтая тень при наведении */
 }
 
+
+
+
 /* Стили для заголовков */
 h2 {
     color: #fff; /* Белый цвет текста */
     text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
+    font-size: 2.5em; /* Новый размер шрифта */
 }
 
 /* Дополнительные стили для страниц */
-.page {
-    padding: 20px; /* Внутренние отступы */
-    background-color: #444; /* Более светлый черный фон */
-    border-radius: 10px; /* Скругленные углы */
-    box-shadow: 0 0 20px #000; /* Тень */
-}
-
 .page h3 {
     color: #fff; /* Белый цвет текста */
     text-shadow: 0 0 5px yellow; /* Тень текста желтого цвета */
@@ -205,34 +228,92 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #444; /* Более светлый черный фон */
-    margin: 15% auto; /* Центровка по вертикали и горизонтали */
+    background-color: #666; /* Более светлый черный фон */
+    margin: 15% auto; /* Автоматические отступы для центрирования */
     padding: 20px; /* Внутренние отступы */
     border: 1px solid #888; /* Серая граница */
-    width: 80%; /* Ширина 80% */
-    max-width: 400px; /* Максимальная ширина 400px */
+    width: 70%; /* Ширина 80% */
     border-radius: 10px; /* Скругленные углы */
-    text-align: center; /* Текст по центру */
-    box-shadow: 0 0 20px #000; /* Тень */
+    text-align: center; /* Центровка текста */
+    color: #fff; /* Белый цвет текста */
+    font-size: 1.2em; /* Размер шрифта 1.2em */
+    box-shadow: 0 0 20px yellow; /* Желтая тень */
 }
 
 /* Стили для кнопки закрытия модального окна */
 .close {
-    color: #aaa; /* Серый цвет текста */
-    float: right; /* Вправо */
-    font-size: 28px; /* Размер шрифта 28px */
+    color: #ff0000; /* Новый цвет текста */
+    float: right; /* Расположение справа */
+    font-size: 32px; /* Новый размер шрифта */
     font-weight: bold; /* Жирный шрифт */
+    cursor: pointer; /* Указатель при наведении */
+    transition: color 0.5s; /* Плавный переход для цвета */
 }
 
 .close:hover,
 .close:focus {
-    color: #fff; /* Белый цвет текста при наведении */
+    color: #fff; /* Белый цвет при наведении и фокусе */
     text-decoration: none; /* Убираем подчеркивание */
     cursor: pointer; /* Указатель при наведении */
 }
 
-/* Стили для неактивной кнопки */
-button:disabled {
-    background-color: gray; /* Серый фон */
-    cursor: not-allowed; /* Запрещенный указатель */
+/* Стили для страницы стейкинга */
+#stakingPage {
+    background-color: #222; /* Новый цвет фона */
+    border-radius: 15px; /* Новый радиус скругления углов */
+    padding: 30px; /* Новый внутренний отступ */
+}
+
+#stakingPage h2 {
+    color: #ffcc00; /* Новый цвет текста заголовка */
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 600px) {
+    .footer img {
+        width: 40px; /* Уменьшаем размер иконок */
+        height: 40px;
+    }
+}
+/* Стили для меню заданий */
+.task-menu {
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    flex-direction: column; /* Размещаем элементы по вертикали */
+    align-items: center; /* Центрируем элементы по горизонтали */
+    width: 100%; /* Ширина меню */
+    max-width: 600px; /* Максимальная ширина меню */
+    margin: 20px auto; /* Автоматическое выравнивание по центру */
+    padding: 10px; /* Внутренние отступы */
+    background-color: #333; /* Фон меню */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 0 10px #000; /* Тень */
+}
+
+.task-item {
+    width: 90%; /* Ширина элементов задания */
+    padding: 15px; /* Внутренние отступы */
+    margin: 10px 0; /* Вертикальные отступы */
+    background-color: #444; /* Фон элементов */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 0 5px #000; /* Тень */
+    display: flex; /* Используем flexbox для выравнивания текста */
+    align-items: center; /* Центрируем текст по вертикали */
+}
+
+.task-item:hover {
+    background-color: #555; /* Изменение фона при наведении */
+}
+
+.task-text {
+    color: #fff; /* Цвет текста */
+    font-size: 1.2em; /* Размер шрифта */
+    margin-left: 10px; /* Левый отступ */
+    flex-grow: 1; /* Расширение текста на всю ширину */
+}
+
+/* Дополнительные стили для значков в заданиях */
+.task-icon {
+    width: 40px; /* Ширина значков */
+    height: 40px; /* Высота значков */
+    margin-right: 10px; /* Правый отступ */
 }
