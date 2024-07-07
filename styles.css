@@ -7,7 +7,7 @@ body {
     justify-content: flex-start; /* Выравнивание по началу страницы */
     align-items: center; /* Центровка элементов по горизонтали */
     height: 100vh; /* Высота 100% экрана */
-    background-color: #787878; /* Более светлый черный фон */
+    background-color: #423E3E; /* Более светлый черный фон */
     color: #eee; /* Белый цвет текста */
     font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
     margin: 0; /* Убираем отступы */
@@ -32,7 +32,7 @@ body {
     height: calc(100vh - 100px); /* Высота с учетом футера */
     overflow-y: auto; /* Вертикальная прокрутка */
     padding: 20px; /* Внутренние отступы */
-    background-color: #787878; /* Более светлый черный фон */
+    background-color: #423E3E; /* Более светлый черный фон */
     border-radius: 10px; /* Скругленные углы */
     box-shadow: 0 0 20px #000; /* Тень */
 }
@@ -97,7 +97,7 @@ body {
     cursor: pointer; /* Указатель при наведении */
     width: 100%; /* Ширина 90% */
     height: 100%; /* Высота 90% */
-    background-color: #ff6600; /* Новый цвет фона кнопок */
+    background-color: #423E3E; /* Новый цвет фона кнопок */
     transition: box-shadow 0.9s; /* Плавный переход для теней */
 }
 
