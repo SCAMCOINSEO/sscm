@@ -276,43 +276,85 @@ button:hover {
     }
 }
 
-/* Стили для меню заданий */
-.task-menu {
-    display: flex; /* Используем flexbox для выравнивания элементов */
-    flex-direction: column; /* Размещаем элементы по вертикали */
-    align-items: center; /* Центрируем элементы по горизонтали */
-    width: 100%; /* Ширина меню */
-    margin: 20px auto; /* Автоматическое выравнивание по центру */
-    padding: 10px; /* Внутренние отступы */
-    background-color: #333; /* Фон меню */
-    border-radius: 10px; /* Скругленные углы */
-    box-shadow: 0 0 10px #000; /* Тень */
+/* Стили для страницы заданий */
+#tasksPage {
+    background-color: #2F2F2F; /* Цвет фона страницы */
+    color: #000; /* Цвет текста */
+    padding: 20px; /* Внутренние отступы */
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow; /* Цвет фона заголовка */
+    padding: 10px;
+    margin: 10px auto; /* Автоматические отступы для центрирования */
+    width: fit-content; /* Ширина по содержимому */
+    border-radius: 8px; /* Скругленные углы */
+}
+
+.task-title {
+    color: black; /* Цвет текста заголовка */
+    margin: 0;
+    padding-right: 10px; /* Отступ справа для иконки */
+    font-size: 1.5em; /* Размер шрифта */
+}
+
+.task-icon {
+    width: 30px; /* Ширина иконки */
+    height: 30px; /* Высота иконки */
+}
+
+#tasksList {
+    padding: 0;
+    margin: 0 auto; /* Центрирование списка заданий */
+    list-style: none; /* Убираем маркеры списка */
+    width: calc(100% - 40px); /* Ширина списка с учетом отступов */
 }
 
 .task-item {
     display: flex; /* Используем flexbox для выравнивания элементов */
     justify-content: space-between; /* Размещаем элементы по краям */
     align-items: center; /* Центрируем элементы по вертикали */
-    width: 100%; /* Ширина 100% */
     padding: 15px; /* Внутренние отступы */
-    margin: 10px 0; /* Вертикальные отступы */
-    background-color: #444; /* Фон элементов */
+    margin: 10px 0; /* Отступы элементов */
+    background-color: #ffcc00; /* Фон элементов */
     border-radius: 8px; /* Скругленные углы */
-    box-shadow: 0 0 5px #000; /* Тень */
-    border: 1px solid #555; /* Граница элементов */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень */
+    color: black; /* Цвет текста */
+    font-size: 1em; /* Размер шрифта */
+    border: 1px solid transparent; /* Невидимая граница для сохранения размеров */
+}
+
+.task-item + .task-item {
+    margin-top: 10px; /* Отступ между элементами */
+}
+
+.task-item:not(:last-child)::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1); /* Полупрозрачная линия */
+    margin: 10px 0;
 }
 
 .task-text {
-    color: #fff; /* Цвет текста */
-    font-size: 1em; /* Размер шрифта */
+    flex: 1; /* Растягиваем текст, чтобы он занимал все доступное пространство */
+    text-align: center; /* Центрируем текст */
 }
 
 .taskButton {
-    background-color: yellow; /* Цвет кнопки */
-    color: #000; /* Цвет текста кнопки */
-    padding: 10px; /* Внутренние отступы кнопки */
-    border: none; /* Убираем границы */
-    border-radius: 5px; /* Скругленные углы кнопки */
-    cursor: pointer; /* Курсор в виде руки */
-    box-shadow: 0 0 5px #000; /* Тень кнопки */
+    background-color: #ffcc00; /* Цвет кнопки */
+    border: none; /* Без границы */
+    padding: 10px 20px; /* Внутренние отступы */
+    color: black; /* Цвет текста кнопки */
+    font-size: 1em; /* Размер шрифта */
+    border-radius: 8px; /* Скругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.taskButton:hover {
+    background-color: #ffb700; /* Цвет кнопки при наведении */
 }
