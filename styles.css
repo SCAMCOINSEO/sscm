@@ -95,7 +95,7 @@ body {
 /* Стили для кнопок */
 .button {
     cursor: pointer; /* Указатель при наведении */
-    width: 100%; /* Ширина 90% */
+    width: 101%; /* Ширина 90% */
     height: 100%; /* Высота 90% */
     background-color: #2F2F2F; /* Новый цвет фона кнопок */
     transition: box-shadow 0.9s; /* Плавный переход для теней */
@@ -119,15 +119,15 @@ body {
 
 /* Стили для кнопок при наведении */
 .button:hover.staking {
-    box-shadow: 0 0 50px blue; /* Новый цвет тени при наведении на кнопку стейкинга */
+    box-shadow: 0 0 65px blue; /* Новый цвет тени при наведении на кнопку стейкинга */
 }
 
 .button:hover.clicker {
-    box-shadow: 0 0 50px green; /* Зеленая тень при наведении на кнопку кликера */
+    box-shadow: 0 0 80px green; /* Зеленая тень при наведении на кнопку кликера */
 }
 
 .button:hover.pass {
-    box-shadow: 0 0 50px yellow; /* Желтая тень при наведении на кнопку пасса */
+    box-shadow: 0 0 40px yellow; /* Желтая тень при наведении на кнопку пасса */
 }
 
 /* Стили для футера */
@@ -148,7 +148,7 @@ body {
     display: flex; /* Включаем flexbox для футера */
     justify-content: space-around; /* Равномерное распределение элементов */
     align-items: center; /* Центровка элементов по вертикали */
-    width: 100%; /* Ширина 100% */
+    width: 98%; /* Ширина 100% */
     padding: 10px; /* Внутренний отступ */
     background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный светлый фон */
     box-sizing: border-box; /* Включаем модель коробки */
@@ -159,19 +159,19 @@ body {
 
 /* Стили для иконок в футере */
 .footer img {
-    width: 18px; /* Ширина изображений 35px */
-    height: 18px; /* Высота изображений 35px */
+    width: 25px; /* Ширина изображений 35px */
+    height: 25px; /* Высота изображений 35px */
     cursor: pointer; /* Указатель при наведении */
     border: 2px solid #2F2F2F; /* Добавляем рамку */
-    border-radius: 11px; /* Скругляем углы иконок */
+    border-radius: 10px; /* Скругляем углы иконок */
     padding: 5px; /* Добавляем внутренний отступ */
     margin: 0 5px; /* Добавляем расстояние между кнопками */
     transition: box-shadow 0.3s; /* Плавный переход для теней */
-    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон для изображений */
+    background-color: rgba(255, 255, 255, 0.4); /* Полупрозрачный фон для изображений */
 }
 
 .footer img:hover {
-    box-shadow: 0 0 20px yellow; /* Желтая тень при наведении */
+    box-shadow: 0 0 20px #9F8E29; /* Желтая тень при наведении */
 }
 
 
@@ -275,13 +275,13 @@ button:hover {
         height: 40px;
     }
 }
+
 /* Стили для меню заданий */
 .task-menu {
     display: flex; /* Используем flexbox для выравнивания элементов */
     flex-direction: column; /* Размещаем элементы по вертикали */
     align-items: center; /* Центрируем элементы по горизонтали */
     width: 100%; /* Ширина меню */
-    max-width: 600px; /* Максимальная ширина меню */
     margin: 20px auto; /* Автоматическое выравнивание по центру */
     padding: 10px; /* Внутренние отступы */
     background-color: #333; /* Фон меню */
@@ -290,30 +290,29 @@ button:hover {
 }
 
 .task-item {
-    width: 90%; /* Ширина элементов задания */
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    justify-content: space-between; /* Размещаем элементы по краям */
+    align-items: center; /* Центрируем элементы по вертикали */
+    width: 100%; /* Ширина 100% */
     padding: 15px; /* Внутренние отступы */
     margin: 10px 0; /* Вертикальные отступы */
     background-color: #444; /* Фон элементов */
     border-radius: 8px; /* Скругленные углы */
     box-shadow: 0 0 5px #000; /* Тень */
-    display: flex; /* Используем flexbox для выравнивания текста */
-    align-items: center; /* Центрируем текст по вертикали */
-}
-
-.task-item:hover {
-    background-color: #555; /* Изменение фона при наведении */
+    border: 1px solid #555; /* Граница элементов */
 }
 
 .task-text {
     color: #fff; /* Цвет текста */
-    font-size: 1.2em; /* Размер шрифта */
-    margin-left: 10px; /* Левый отступ */
-    flex-grow: 1; /* Расширение текста на всю ширину */
+    font-size: 1em; /* Размер шрифта */
 }
 
-/* Дополнительные стили для значков в заданиях */
-.task-icon {
-    width: 40px; /* Ширина значков */
-    height: 40px; /* Высота значков */
-    margin-right: 10px; /* Правый отступ */
+.taskButton {
+    background-color: yellow; /* Цвет кнопки */
+    color: #000; /* Цвет текста кнопки */
+    padding: 10px; /* Внутренние отступы кнопки */
+    border: none; /* Убираем границы */
+    border-radius: 5px; /* Скругленные углы кнопки */
+    cursor: pointer; /* Курсор в виде руки */
+    box-shadow: 0 0 5px #000; /* Тень кнопки */
 }
