@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сам Коин</title>
+    <title>Скам Коин</title>
     <link rel="stylesheet" href="styles.css"> <!-- Подключение файла стилей CSS -->
 </head>
 <body>
@@ -46,14 +46,14 @@
         <div id="tasksPage" class="page">
             <h2>Задания</h2> <!-- Заголовок страницы заданий -->
             <ul id="tasksList">
-                <li>
-                    Подписаться на Telegram канал 
+                <li class="task-item">
+                    <span class="task-text">Подписаться на Telegram канал</span>
                     <button class="taskButton" onclick="openTaskMenu(this)">Выполнить</button> <!-- Кнопка выполнения задания -->
-                    <div class="task-menu">
-                        <a href="https://t.me/scamcoinofficia" target="_blank" class="option">Перейти</a> <!-- Ссылка на Telegram канал -->
-                    </div>
                 </li>
-                <li>Посетить сайт <button class="taskButton">Выполнить</button></li>
+                <li class="task-item">
+                    <span class="task-text">Посетить сайт</span>
+                    <button class="taskButton">Выполнить</button>
+                </li>
                 <!-- Добавьте остальные задания здесь -->
             </ul>
         </div>
