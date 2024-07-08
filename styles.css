@@ -7,7 +7,7 @@ body {
     justify-content: flex-start; /* Выравнивание по началу страницы */
     align-items: center; /* Центровка элементов по горизонтали */
     height: 100vh; /* Высота 100% экрана */
-    background-color: #423E3E; /* Более светлый черный фон */
+    background-color: #2F2F2F; /* Более светлый черный фон */
     color: #eee; /* Белый цвет текста */
     font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
     margin: 0; /* Убираем отступы */
@@ -32,7 +32,7 @@ body {
     height: calc(100vh - 100px); /* Высота с учетом футера */
     overflow-y: auto; /* Вертикальная прокрутка */
     padding: 20px; /* Внутренние отступы */
-    background-color: #423E3E; /* Более светлый черный фон */
+    background-color: #2F2F2F; /* Более светлый черный фон */
     border-radius: 10px; /* Скругленные углы */
     box-shadow: 0 0 20px #000; /* Тень */
 }
@@ -81,7 +81,7 @@ body {
     flex-direction: column; /* Элементы располагаются по вертикали */
     align-items: center; /* Центровка элементов по горизонтали */
     width: 100%; /* Ширина 100% */ 
-    height: 65%; /* Высота 60% */
+    height: 71%; /* Высота 60% */
 }
 
 /* Стили для обертки кнопок */
@@ -97,7 +97,7 @@ body {
     cursor: pointer; /* Указатель при наведении */
     width: 100%; /* Ширина 90% */
     height: 100%; /* Высота 90% */
-    background-color: #423E3E; /* Новый цвет фона кнопок */
+    background-color: #2F2F2F; /* Новый цвет фона кнопок */
     transition: box-shadow 0.9s; /* Плавный переход для теней */
 }
 
@@ -148,12 +148,12 @@ body {
     display: flex; /* Включаем flexbox для футера */
     justify-content: space-around; /* Равномерное распределение элементов */
     align-items: center; /* Центровка элементов по вертикали */
-    width: 100%; /* Ширина 100% */
+    width: 90%; /* Ширина 100% */
     padding: 10px; /* Внутренний отступ */
-    background-color: rgba(255, 255, 255, 0.15); /* Полупрозрачный светлый фон */
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный светлый фон */
     box-sizing: border-box; /* Включаем модель коробки */
-    border-radius: 15px; /* Скругляем углы футера */
-    margin-bottom: 10px; /* Добавляем нижний отступ */
+    border-radius: 20px; /* Скругляем углы футера */
+    margin-bottom: 5px; /* Добавляем нижний отступ */
     height: 50px; /* Высота футера 50px */
 }
 
@@ -162,7 +162,7 @@ body {
     width: 35px; /* Ширина изображений 35px */
     height: 35px; /* Высота изображений 35px */
     cursor: pointer; /* Указатель при наведении */
-    border: 2px solid #fff; /* Добавляем рамку */
+    border: 2px solid #2F2F2F; /* Добавляем рамку */
     border-radius: 10px; /* Скругляем углы иконок */
     padding: 5px; /* Добавляем внутренний отступ */
     margin: 0 5px; /* Добавляем расстояние между кнопками */
