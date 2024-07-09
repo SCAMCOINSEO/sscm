@@ -2,359 +2,373 @@
 
 /* Основные стили для всего тела */
 body {
-    display: flex; /* Включаем flexbox для body */
-    flex-direction: column; /* Выравнивание элементов по вертикали */
-    justify-content: flex-start; /* Выравнивание по началу страницы */
-    align-items: center; /* Центровка элементов по горизонтали */
-    height: 100vh; /* Высота 100% экрана */
-    background-color: #2F2F2F; /* Более светлый черный фон */
-    color: #eee; /* Белый цвет текста */
-    font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
-    margin: 0; /* Убираем отступы */
-    padding: 0; /* Убираем внутренние отступы */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #2F2F2F;
+    color: #eee;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Стили для основного контейнера */
 .container {
-    text-align: center; /* Текст по центру */
-    width: 100%; /* Ширина 100% */
-    display: flex; /* Включаем flexbox */
-    flex-direction: column; /* Элементы располагаются по вертикали */
-    align-items: center; /* Центровка элементов по горизонтали */
-    position: relative; /* Относительное позиционирование */
-    height: 100%; /* Высота 100% */
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100%;
 }
 
 /* Стили для страниц */
 .page {
-    display: none; /* Скрываем страницы по умолчанию */
-    width: 100%; /* Ширина 100% */
-    height: calc(100vh - 100px); /* Высота с учетом футера */
-    overflow-y: auto; /* Вертикальная прокрутка */
-    padding: 20px; /* Внутренние отступы */
-    background-color: #2F2F2F; /* Более светлый черный фон */
-    border-radius: 10px; /* Скругленные углы */
-    box-shadow: 0 0 20px #000; /* Тень */
+    display: none;
+    width: 100%;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #2F2F2F;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
 }
 
 /* Стили для активной страницы */
 .page.active {
-    display: block; /* Показываем активную страницу */
+    display: block;
 }
 
 /* Стили для заголовка */
 .header {
-    display: flex; /* Включаем flexbox */
-    flex-direction: column; /* Элементы располагаются по вертикали */
-    align-items: center; /* Центровка элементов по горизонтали */
-    text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
-    margin-bottom: 10px; /* Нижний отступ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 0 10px yellow;
+    margin-bottom: 10px;
 }
 
 /* Стили для логотипа */
 .title {
-    width: 100%; /* Ширина 80% */
-    max-width: 300px; /* Максимальная ширина 300px */
-    height: auto; /* Автоматическая высота */
+    width: 100%;
+    max-width: 300px;
+    height: auto;
 }
 
 /* Стили для ранга */
 .rank {
-    font-size: 3.5em; /* Размер шрифта 1.5em */
-    font-weight: bold; /* Жирный шрифт */
-    color: #ffcc00; /* Желтый цвет текста */
-    text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
-    margin-top: 5px; /* Верхний отступ */
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 0 0 10px yellow;
+    margin-top: 5px;
 }
 
 /* Стили для счета */
 .score {
-    font-size: 3em; /* Размер шрифта 3em */
-    color: yellow; /* Желтый цвет текста */
-    text-shadow: 0 0 5px yellow; /* Тень текста желтого цвета */
-    margin: 10px 0; /* Вертикальные отступы */
+    display: flex;
+    align-items: center;
+    font-size: 3em;
+    color: yellow;
+    text-shadow: 0 0 5px yellow;
+    margin: 10px 0;
+}
+
+/* Стили для иконки монеты */
+.coin-icon {
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-left: 500px;
 }
 
 /* Стили для контейнера кнопок */
 .button-container {
-    display: flex; /* Включаем flexbox */
-    flex-direction: column; /* Элементы располагаются по вертикали */
-    align-items: center; /* Центровка элементов по горизонтали */
-    width: 100%; /* Ширина 100% */ 
-    height: 74%; /* Высота 60% */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 74%;
 }
 
 /* Стили для обертки кнопок */
 .button-wrapper {
-    position: relative; /* Относительное позиционирование */
-    width: 105%; /* Ширина 100% */
-    height: calc(33.33% - 2px); /* Высота с учетом границ */
-    margin-bottom: -4px; /* Нижний отступ */
+    position: relative;
+    width: 105%;
+    height: calc(33.33% - 2px);
+    margin-bottom: -4px;
 }
 
 /* Стили для кнопок */
 .button {
-    cursor: pointer; /* Указатель при наведении */
-    width: 101%; /* Ширина 90% */
-    height: 100%; /* Высота 90% */
-    background-color: #2F2F2F; /* Новый цвет фона кнопок */
-    transition: box-shadow 0.9s; /* Плавный переход для теней */
+    cursor: pointer;
+    width: 101%;
+    height: 100%;
+    background-color: #2F2F2F;
+    transition: box-shadow 0.9s;
 }
 
 /* Стили для прозрачного текста */
 .transparent-text {
-    position: absolute; /* Абсолютное позиционирование */
-    top: 50%; /* Расположение по центру сверху */
-    left: 50%; /* Расположение по центру слева */
-    transform: translate(-50%, -50%); /* Центровка элемента */
-    color: rgba(255, 255, 255, 0.5); /* Полупрозрачный цвет текста */
-    font-size: 1em; /* Размер шрифта 1em */
-    pointer-events: none; /* Отключение взаимодействия с элементом */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1em;
+    pointer-events: none;
 }
 
 /* Стили для активной кнопки */
 .button:active {
-    transform: scale(0.97); /* Уменьшение размера при нажатии */
+    transform: scale(0.97);
 }
 
 /* Стили для кнопок при наведении */
 .button:hover.staking {
-    box-shadow: 0 0 65px blue; /* Новый цвет тени при наведении на кнопку стейкинга */
+    box-shadow: 0 0 65px blue;
 }
 
 .button:hover.clicker {
-    box-shadow: 0 0 80px green; /* Зеленая тень при наведении на кнопку кликера */
+    box-shadow: 0 0 80px green;
 }
 
 .button:hover.pass {
-    box-shadow: 0 0 40px yellow; /* Желтая тень при наведении на кнопку пасса */
+    box-shadow: 0 0 40px yellow;
 }
 
 /* Стили для футера */
 .footer {
-    display: flex; /* Включаем flexbox для футера */
-    justify-content: space-around; /* Равномерное распределение элементов */
-    align-items: center; /* Центровка элементов по вертикали */
-    width: 100%; /* Ширина 100% */
-    padding: 10px; /* Внутренний отступ */
-    background-color: #333; /* Фоновый цвет */
-    box-sizing: border-box; /* Включаем модель коробки */
-}
-
-
-
-/* Стили для футера */
-.footer {
-    display: flex; /* Включаем flexbox для футера */
-    justify-content: space-around; /* Равномерное распределение элементов */
-    align-items: center; /* Центровка элементов по вертикали */
-    width: 98%; /* Ширина 100% */
-    padding: 10px; /* Внутренний отступ */
-    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный светлый фон */
-    box-sizing: border-box; /* Включаем модель коробки */
-    border-radius: 20px; /* Скругляем углы футера */
-    margin-bottom: 5px; /* Добавляем нижний отступ */
-    height: 50px; /* Высота футера 50px */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 98%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    height: 50px;
 }
 
 /* Стили для иконок в футере */
 .footer img {
-    width: 25px; /* Ширина изображений 35px */
-    height: 25px; /* Высота изображений 35px */
-    cursor: pointer; /* Указатель при наведении */
-    border: 2px solid #2F2F2F; /* Добавляем рамку */
-    border-radius: 10px; /* Скругляем углы иконок */
-    padding: 5px; /* Добавляем внутренний отступ */
-    margin: 0 5px; /* Добавляем расстояние между кнопками */
-    transition: box-shadow 0.3s; /* Плавный переход для теней */
-    background-color: rgba(255, 255, 255, 0.4); /* Полупрозрачный фон для изображений */
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border: 2px solid #2F2F2F;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 0 5px;
+    transition: box-shadow 0.3s;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .footer img:hover {
-    box-shadow: 0 0 20px #9F8E29; /* Желтая тень при наведении */
+    box-shadow: 0 0 20px #9F8E29;
 }
-
-
-
 
 /* Стили для заголовков */
 h2 {
-    color: #fff; /* Белый цвет текста */
-    text-shadow: 0 0 10px yellow; /* Тень текста желтого цвета */
-    font-size: 2.5em; /* Новый размер шрифта */
+    color: #fff;
+    text-shadow: 0 0 10px yellow;
+    font-size: 2.5em;
 }
 
 /* Дополнительные стили для страниц */
 .page h3 {
-    color: #fff; /* Белый цвет текста */
-    text-shadow: 0 0 5px yellow; /* Тень текста желтого цвета */
+    color: #fff;
+    text-shadow: 0 0 5px yellow;
 }
 
 /* Стили для ввода и кнопок */
 input, button {
-    width: 80%; /* Ширина 80% */
-    max-width: 300px; /* Максимальная ширина 300px */
-    padding: 10px; /* Внутренние отступы */
-    margin: 10px 0; /* Вертикальные отступы */
-    border: none; /* Убираем границу */
-    border-radius: 5px; /* Скругленные углы */
-    font-size: 1em; /* Размер шрифта 1em */
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
 }
 
 /* Стили для кнопок */
 button {
-    background-color: yellow; /* Желтый фон */
-    color: #000; /* Черный цвет текста */
-    font-weight: bold; /* Жирный шрифт */
-    cursor: pointer; /* Указатель при наведении */
-    transition: background-color 0.5s; /* Плавный переход для фона */
+    background-color: yellow;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.5s;
 }
 
 button:hover {
-    background-color: gold; /* Золотой фон при наведении */
+    background-color: gold;
 }
 
 /* Стили для модального окна */
 .modal {
-    display: none; /* Скрываем модальное окно по умолчанию */
-    position: fixed; /* Фиксированное позиционирование */
-    z-index: 1; /* Высокий z-index для поверх других элементов */
-    left: 0; /* Расположение слева */
-    top: 0; /* Расположение сверху */
-    width: 100%; /* Ширина 100% */
-    height: 100%; /* Высота 100% */
-    overflow: auto; /* Автоматическая прокрутка */
-    background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modal-content {
-    background-color: #666; /* Более светлый черный фон */
-    margin: 15% auto; /* Автоматические отступы для центрирования */
-    padding: 20px; /* Внутренние отступы */
-    border: 1px solid #888; /* Серая граница */
-    width: 70%; /* Ширина 80% */
-    border-radius: 10px; /* Скругленные углы */
-    text-align: center; /* Центровка текста */
-    color: #fff; /* Белый цвет текста */
-    font-size: 1.2em; /* Размер шрифта 1.2em */
-    box-shadow: 0 0 20px yellow; /* Желтая тень */
+    background-color: #666;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2em;
+    box-shadow: 0 0 20px yellow;
 }
 
 /* Стили для кнопки закрытия модального окна */
 .close {
-    color: #ff0000; /* Новый цвет текста */
-    float: right; /* Расположение справа */
-    font-size: 32px; /* Новый размер шрифта */
-    font-weight: bold; /* Жирный шрифт */
-    cursor: pointer; /* Указатель при наведении */
-    transition: color 0.5s; /* Плавный переход для цвета */
+    color: #ff0000;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.5s;
 }
 
 .close:hover,
 .close:focus {
-    color: #fff; /* Белый цвет при наведении и фокусе */
-    text-decoration: none; /* Убираем подчеркивание */
-    cursor: pointer; /* Указатель при наведении */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Стили для страницы стейкинга */
 #stakingPage {
-    background-color: #222; /* Новый цвет фона */
-    border-radius: 15px; /* Новый радиус скругления углов */
-    padding: 30px; /* Новый внутренний отступ */
+    background-color: #222;
+    border-radius: 15px;
+    padding: 30px;
 }
 
 #stakingPage h2 {
-    color: #ffcc00; /* Новый цвет текста заголовка */
+    color: #ffcc00;
 }
 
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 600px) {
     .footer img {
-        width: 40px; /* Уменьшаем размер иконок */
+        width: 40px;
         height: 40px;
     }
 }
 
 /* Стили для страницы заданий */
 #tasksPage {
-    background-color: #2F2F2F; /* Цвет фона страницы */
-    color: #000; /* Цвет текста */
-    padding: 20px; /* Внутренние отступы */
+    background-color: #2F2F2F;
+    color: #000;
+    padding: 20px;
 }
 
 .task-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: yellow; /* Цвет фона заголовка */
+    background-color: yellow;
     padding: 10px;
-    margin: 10px auto; /* Автоматические отступы для центрирования */
-    width: fit-content; /* Ширина по содержимому */
-    border-radius: 8px; /* Скругленные углы */
+    margin: 10px auto;
+    width: fit-content;
+    border-radius: 8px;
 }
 
 .task-title {
-    color: black; /* Цвет текста заголовка */
+    color: black;
     margin: 0;
-    padding-right: 10px; /* Отступ справа для иконки */
-    font-size: 1.5em; /* Размер шрифта */
+    padding-right: 10px;
+    font-size: 1.5em;
 }
 
 .task-icon {
-    width: 30px; /* Ширина иконки */
-    height: 30px; /* Высота иконки */
+    width: 30px;
+    height: 30px;
 }
 
 #tasksList {
     padding: 0;
-    margin: 0 auto; /* Центрирование списка заданий */
-    list-style: none; /* Убираем маркеры списка */
-    width: calc(100% - 40px); /* Ширина списка с учетом отступов */
+    margin: 0 auto;
+    list-style: none;
+    width: calc(100% - 40px);
 }
 
 .task-item {
-    display: flex; /* Используем flexbox для выравнивания элементов */
-    justify-content: space-between; /* Размещаем элементы по краям */
-    align-items: center; /* Центрируем элементы по вертикали */
-    padding: 15px; /* Внутренние отступы */
-    margin: 10px 0; /* Отступы элементов */
-    background-color: #ffcc00; /* Фон элементов */
-    border-radius: 8px; /* Скругленные углы */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень */
-    color: black; /* Цвет текста */
-    font-size: 1em; /* Размер шрифта */
-    border: 1px solid transparent; /* Невидимая граница для сохранения размеров */
-}
-
-.task-item + .task-item {
-    margin-top: 10px; /* Отступ между элементами */
-}
-
-.task-item:not(:last-child)::after {
-    content: "";
-    display: block;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.1); /* Полупрозрачная линия */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
     margin: 10px 0;
+    background-color: #ffcc00;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.task-text {
-    flex: 1; /* Растягиваем текст, чтобы он занимал все доступное пространство */
-    text-align: center; /* Центрируем текст */
+.task-item.completed {
+    background-color: #999;
+    color: #555;
+    text-decoration: line-through;
 }
 
-.taskButton {
-    background-color: #ffcc00; /* Цвет кнопки */
-    border: none; /* Без границы */
-    padding: 10px 20px; /* Внутренние отступы */
-    color: black; /* Цвет текста кнопки */
-    font-size: 1em; /* Размер шрифта */
-    border-radius: 8px; /* Скругленные углы */
-    cursor: pointer; /* Курсор при наведении */
-    transition: background-color 0.3s; /* Плавный переход цвета фона */
+.task-item span {
+    font-size: 1.2em;
 }
 
-.taskButton:hover {
-    background-color: #ffb700; /* Цвет кнопки при наведении */
+.task-item img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Стили для чекбоксов */
+.task-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Стили для кнопки завершения всех задач */
+.complete-all {
+    background-color: yellow;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    margin-top: 20px;
+}
+
+.complete-all:hover {
+    background-color: gold;
+}
+
+/* Стили для уведомлений */
+.notification {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: yellow;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
