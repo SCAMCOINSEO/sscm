@@ -14,7 +14,10 @@
                 <img src="images/title.png" alt="Сам Коин" class="title"> <!-- Заголовок с логотипом -->
                 <div class="rank" id="rank">Ранг 1</div> <!-- Элемент для отображения ранга -->
             </div>
-            <div class="score" id="score">0 монет</div> <!-- Элемент для отображения количества монет -->
+            <div class="score" id="score">
+                <img src="https://cdn-icons-png.flaticon.com/256/4285/4285906.png" alt="" class="coin-icon">
+                <span id="coinAmount">0 </span>
+            </div> <!-- Элемент для отображения количества монет -->
             <div class="button-container">
                 <!-- Контейнер для кнопок -->
                 <div class="button-wrapper">
@@ -51,7 +54,7 @@
             <ul id="tasksList">
                 <li class="task-item">
                     <span class="task-text">Подписаться на Telegram канал</span>
-                    <button class="taskButton" onclick="openTaskMenu(this)">Выполнить</button> <!-- Кнопка выполнения задания -->
+                    <button class="taskButton" onclick="window.open('https://t.me/scamcoinofficia')">Выполнить</button> <!-- Кнопка выполнения задания -->
                 </li>
                 <li class="task-item">
                     <span class="task-text">Посетить сайт</span>
@@ -81,7 +84,10 @@
             <h2>Кошелек</h2> <!-- Заголовок страницы кошелька -->
             <div class="wallet-balance">
                 <h3>Ваш баланс</h3> <!-- Заголовок секции баланса -->
-                <p id="walletBalance">0 монет</p> <!-- Отображение текущего баланса -->
+                <p id="walletBalance">
+                    <img src="https://cdn-icons-png.flaticon.com/256/4285/4285906.png" alt="Монета" class="coin-icon">
+                    <span id="walletCoinAmount">0 монет</span>
+                </p> <!-- Отображение текущего баланса -->
             </div>
             <div class="promo-code">
                 <h3>Введите промокод</h3> <!-- Заголовок секции ввода промокода -->
