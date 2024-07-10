@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const upgradeMenu = document.getElementById('upgradeMenu'); // Меню улучшения
     const closeUpgradeMenu = document.getElementById('closeUpgradeMenu'); // Кнопка закрытия меню улучшения
     const upgradeClickerButton = document.getElementById('upgradeClickerButton'); // Кнопка улучшения кликера
-    const scoreDisplay = document.getElementById('score'); // Отображение счета
-    const walletBalanceDisplay = document.getElementById('walletBalance'); // Отображение баланса
+    const coinAmountDisplay = document.getElementById('coinAmount'); // Отображение количества монет
+    const walletCoinAmountDisplay = document.getElementById('walletCoinAmount'); // Отображение баланса
     const stakeButton = document.getElementById('stakeButton'); // Кнопка "Инвестировать"
     const stakingAmountInput = document.getElementById('stakingAmount'); // Ввод суммы для инвестирования
     const currentStakingEarningsDisplay = document.getElementById('currentStakingEarnings'); // Отображение текущих заработков от инвестирования
@@ -29,10 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tapMultiplier', tapMultiplier.toString()); // Сохраняем множитель кликов
     }
 
+    // Функция для сокращения числа монет
+    function formatCoins(amount) {
+        if (amount >= 1000000) {
+            return (amount / 1000000).toFixed(1) + 'M';
+        } else if (amount >= 1000) {
+            return (amount / 1000).toFixed(1) + 'K';
+        } else {
+            return amount.toString();
+        }
+    }
+
     // Функция для обновления отображения монет
     function updateCoinDisplay() {
-        scoreDisplay.textContent = `${coins} монет`; // Обновляем текст с количеством монет
-        walletBalanceDisplay.textContent = `${coins} монет`; // Обновляем баланс
+        const formattedCoins = formatCoins(coins);
+        coinAmountDisplay.textContent = `${formattedCoins} монет`; // Обновляем текст с количеством монет
+        walletCoinAmountDisplay.textContent = `${formattedCoins} монет`; // Обновляем баланс
     }
 
     // Обработчик клика по кнопке кликера
@@ -46,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clickerButton.addEventListener('mousedown', () => {
         this.holdTimer = setTimeout(() => {
             upgradeMenu.style.display = 'block'; // Открываем меню улучшения через 500мс удержания
-        }, 150);
+        }, 350);
     });
 
     clickerButton.addEventListener('mouseup', () => {
@@ -62,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     upgradeClickerButton.addEventListener('click', () => {
         if (coins >= upgradeCost) {
             coins -= upgradeCost; // Уменьшаем количество монет на стоимость улучшения
-            tapMultiplier += 1; // Увеличиваем множитель кликов вдвое
+            tapMultiplier += 2; // Увеличиваем множитель кликов вдвое
             saveState(); // Сохраняем состояние
             updateCoinDisplay(); // Обновляем отображение монет
             alert('Кликер улучшен! Теперь вы получаете вдвое больше монет за клик.'); // Уведомление об улучшении
