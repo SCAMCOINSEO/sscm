@@ -2,118 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Скам Коин</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Подключение файла стилей CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Блокировка прокрутки страницы */
+        body {
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <!-- Главная страница -->
         <div id="homePage" class="page active">
             <div class="header">
-                <img src="images/title.png" alt="Сам Коин" class="title"> <!-- Заголовок с логотипом -->
-                <div class="rank" id="rank">Ранг 1</div> <!-- Элемент для отображения ранга -->
+                <img src="images/title.png" alt="Сам Коин" class="title">
+                <div class="rank" id="rank">Ранг 1</div>
             </div>
             <div class="score" id="score">
                 <img src="https://cdn-icons-png.flaticon.com/256/4285/4285906.png" alt="" class="coin-icon">
                 <span id="coinAmount">0 </span>
-            </div> <!-- Элемент для отображения количества монет -->
+            </div>
             <div class="button-container">
-                <!-- Контейнер для кнопок -->
                 <div class="button-wrapper">
-                    <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton"> <!-- Кнопка для перехода на страницу стейкинга -->
-                    <span id="stakingEarnings" class="transparent-text">0 монет</span> <!-- Отображение доходов от стейкинга -->
+                    <img src="images/staking_button.png" alt="Стейкинг" class="button staking" id="stakingButton">
+                    <span id="stakingEarnings" class="transparent-text">0 монет</span>
                 </div>
                 <div class="button-wrapper">
-                    <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton"> <!-- Кнопка для перехода на страницу кликера -->
+                    <img src="images/clicker_button.png" alt="Кликер" class="button clicker" id="clickerButton">
                 </div>
                 <div class="button-wrapper">
-                    <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton"> <!-- Кнопка для перехода на страницу пасса -->
+                    <img src="images/pass_button.png" alt="Пасс" class="button pass" id="passButton">
                 </div>
             </div>
         </div>
 
         <!-- Страница стейкинга -->
         <div id="stakingPage" class="page">
-            <h2>Стейкинг</h2> <!-- Заголовок страницы стейкинга -->
+            <h2>Стейкинг</h2>
             <div class="staking-container">
-                <p>Инвестировать свои монеты под 10% в час</p> <!-- Описание стейкинга -->
-                <input type="number" id="stakingAmount" placeholder="Количество монет"> <!-- Поле для ввода суммы стейкинга -->
-                <button id="stakeButton">Инвестировать</button> <!-- Кнопка для инвестирования -->
-                <p>Текущие доходы от стейкинга: <span id="currentStakingEarnings">0 монет</span></p> <!-- Отображение текущих доходов от стейкинга -->
-                <button id="reinvestButton">Реинвестировать</button> <!-- Кнопка для реинвестирования -->
+                <p>Инвестировать свои монеты под 10% в час</p>
+                <input type="number" id="stakingAmount" placeholder="Количество монет">
+                <button id="stakeButton">Инвестировать</button>
+                <p>Текущие доходы от стейкинга: <span id="currentStakingEarnings">0 монет</span></p>
+                <button id="reinvestButton">Реинвестировать</button>
             </div>
         </div>
-        
+
         <!-- Страница заданий -->
         <div id="tasksPage" class="page">
             <div class="task-header">
-                <h2 class="task-title">Задания</h2> <!-- Заголовок страницы заданий -->
-                <img src="https://cdn.icon-icons.com/icons2/3251/PNG/512/tasks_app_regular_icon_202707.png" alt="Иконка заданий" class="task-icon"> <!-- Место для иконки заданий -->
+                <h2 class="task-title">Задания</h2>
+                <img src="https://cdn.icon-icons.com/icons2/3251/PNG/512/tasks_app_regular_icon_202707.png" alt="Иконка заданий" class="task-icon">
             </div>
             <ul id="tasksList">
                 <li class="task-item">
                     <span class="task-text">Подписаться на Telegram канал</span>
-                    <button class="taskButton" onclick="window.open('https://t.me/scamcoinofficia')">Выполнить</button> <!-- Кнопка выполнения задания -->
+                    <button class="taskButton" onclick="window.open('https://t.me/scamcoinofficia')">Выполнить</button>
                 </li>
                 <li class="task-item">
                     <span class="task-text">Посетить сайт</span>
                     <button class="taskButton">Выполнить</button>
                 </li>
-                <!-- Добавьте остальные задания здесь -->
             </ul>
         </div>
-        
+
         <!-- Страница рефералов -->
         <div id="referralsPage" class="page">
-            <h2>Реферальная система</h2> <!-- Заголовок страницы рефералов -->
+            <h2>Реферальная система</h2>
             <div class="referral-rewards">
-                <h3>Вознаграждения за ранги</h3> <!-- Заголовок секции вознаграждений -->
+                <h3>Вознаграждения за ранги</h3>
                 <p>Ранг 1: 10 монет</p>
                 <p>Ранг 2: 100 монет</p>
-                <!-- Добавьте остальные ранги и вознаграждения здесь -->
             </div>
             <div class="referral-income">
-                <h3>Общий доход от друзей</h3> <!-- Заголовок секции общего дохода -->
-                <p id="totalReferralIncome">0 монет</p> <!-- Отображение общего дохода от друзей -->
+                <h3>Общий доход от друзей</h3>
+                <p id="totalReferralIncome">0 монет</p>
             </div>
         </div>
-        
+
         <!-- Страница кошелька -->
         <div id="walletPage" class="page">
-            <h2>Кошелек</h2> <!-- Заголовок страницы кошелька -->
+            <h2>Кошелек</h2>
             <div class="wallet-balance">
-                <h3>Ваш баланс</h3> <!-- Заголовок секции баланса -->
+                <h3>Ваш баланс</h3>
                 <p id="walletBalance">
                     <img src="https://cdn-icons-png.flaticon.com/256/4285/4285906.png" alt="Монета" class="coin-icon">
                     <span id="walletCoinAmount">0 монет</span>
-                </p> <!-- Отображение текущего баланса -->
+                </p>
             </div>
             <div class="promo-code">
-                <h3>Введите промокод</h3> <!-- Заголовок секции ввода промокода -->
-                <input type="text" id="promoCodeInput" placeholder="Промокод"> <!-- Поле для ввода промокода -->
-                <button id="redeemPromoCodeButton">Активировать</button> <!-- Кнопка для активации промокода -->
+                <h3>Введите промокод</h3>
+                <input type="text" id="promoCodeInput" placeholder="Промокод">
+                <button id="redeemPromoCodeButton">Активировать</button>
             </div>
-        </div>
-    </div>
-    
-    <!-- Меню для прокачки тапа -->
-    <div id="upgradeMenu" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeUpgradeMenu">&times;</span> <!-- Кнопка для закрытия модального окна -->
-            <h2>Улучшить кликер</h2> <!-- Заголовок модального окна -->
-            <p>Улучшение стоит 10,000 монет. После улучшения каждый клик будет приносить вдвое больше монет.</p> <!-- Описание улучшения -->
-            <button id="upgradeClickerButton">Улучшить за 10,000 монет</button> <!-- Кнопка для улучшения кликера -->
         </div>
     </div>
 
-    <!-- Футер с навигацией -->
-    <div class="footer">
-        <img src="https://cdn.icon-icons.com/icons2/936/PNG/512/home_icon-icons.com_73532.png" alt="Домой" id="homeButton"> <!-- Кнопка для перехода на главную страницу -->
-        <img src="https://cdn.icon-icons.com/icons2/3251/PNG/512/tasks_app_regular_icon_202707.png" alt="Задания" id="tasksButton"> <!-- Кнопка для перехода на страницу заданий -->
-        <img src="https://cdn-icons-png.flaticon.com/512/880/880594.png" alt="Рефералы" id="referralsButton"> <!-- Кнопка для перехода на страницу рефералов -->
-        <img src="https://cdn-icons-png.flaticon.com/512/3359/3359235.png" alt="Кошелек" id="walletButton"> <!-- Кнопка для перехода на страницу кошелька -->
+    <div id="upgradeMenu" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeUpgradeMenu">&times;</span>
+            <h2>Улучшить кликер</h2>
+            <p>Улучшение стоит 10,000 монет. После улучшения каждый клик будет приносить вдвое больше монет.</p>
+            <button id="upgradeClickerButton">Улучшить за 10,000 монет</button>
+        </div>
     </div>
-    <script src="scripts.js"></script> <!-- Подключение файла JavaScript -->
+
+    <div class="footer">
+        <img src="https://cdn.icon-icons.com/icons2/936/PNG/512/home_icon-icons.com_73532.png" alt="Домой" id="homeButton">
+        <img src="https://cdn.icon-icons.com/icons2/3251/PNG/512/tasks_app_regular_icon_202707.png" alt="Задания" id="tasksButton">
+        <img src="https://cdn-icons-png.flaticon.com/512/880/880594.png" alt="Рефералы" id="referralsButton">
+        <img src="https://cdn-icons-png.flaticon.com/512/3359/3359235.png" alt="Кошелек" id="walletButton">
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
