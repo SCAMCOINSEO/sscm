@@ -6,9 +6,9 @@
     <title>Скам Коин</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Блокировка прокрутки страницы */
+        /* Блокировка горизонтальной прокрутки страницы */
         body {
-            overflow: hidden;
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -17,12 +17,12 @@
         <!-- Главная страница -->
         <div id="homePage" class="page active">
             <div class="header">
-                <img src="images/title.png" alt="Сам Коин" class="title">
+                <img src="images/title.png" alt="Скам Коин" class="title">
                 <div class="rank" id="rank">Ранг 1</div>
             </div>
             <div class="score" id="score">
                 <img src="https://cdn-icons-png.flaticon.com/256/4285/4285906.png" alt="" class="coin-icon">
-                <span id="coinAmount">0 </span>
+                <span id="coinAmount">0</span>
             </div>
             <div class="button-container">
                 <div class="button-wrapper">
@@ -70,15 +70,39 @@
 
         <!-- Страница рефералов -->
         <div id="referralsPage" class="page">
-            <h2>Реферальная система</h2>
-            <div class="referral-rewards">
-                <h3>Вознаграждения за ранги</h3>
-                <p>Ранг 1: 10 монет</p>
-                <p>Ранг 2: 100 монет</p>
+            <div class="task-header">
+                <h2 class="task-title">Реферальная система</h2>
+                <img src="https://cdn.icon-icons.com/icons2/3251/PNG/512/tasks_app_regular_icon_202707.png" alt="Иконка рефералов" class="task-icon">
             </div>
             <div class="referral-income">
-                <h3>Общий доход от друзей</h3>
-                <p id="totalReferralIncome">0 монет</p>
+                <p>Общий доход от друзей: <span id="totalReferralIncome">0 монет</span></p>
+            </div>
+            <div class="referral-content">
+                <div class="referral-link">
+                    <h3>Ваша реферальная ссылка</h3>
+                    <input type="text" id="referralLink" readonly value="https://example.com/referral-link">
+                    <button id="generateLinkButton">Сгенерировать новую ссылку</button>
+                </div>
+                <div class="referral-list">
+                    <h3>Ваши рефералы</h3>
+                    <ul id="referrals">
+                        <li class="referral-item">
+                            <img src="avatar1.png" alt="Avatar" class="referral-icon">
+                            <span class="referral-name">User1</span>
+                            <span class="referral-income">500 RUB</span>
+                        </li>
+                        <li class="referral-item">
+                            <img src="avatar2.png" alt="Avatar" class="referral-icon">
+                            <span class="referral-name">User2</span>
+                            <span class="referral-income">300 RUB</span>
+                        </li>
+                        <li class="referral-item">
+                            <img src="avatar3.png" alt="Avatar" class="referral-icon">
+                            <span class="referral-name">User3</span>
+                            <span class="referral-income">200 RUB</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
