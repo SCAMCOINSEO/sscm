@@ -79,7 +79,7 @@ body {
     align-items: center;
     width: 60px;
     height: 60px;
-    margin-left: 17px;
+    margin-left: 120px;
 }
 
 /* Стили для контейнера кнопок */
@@ -139,34 +139,29 @@ body {
 }
 
 /* Стили для страницы заданий */
-#tasksPage {
-    background-color: #2F2F2F;
-    color: #000;
-    padding: 20px;
-}
-
 .task-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: yellow;
+    margin-bottom: 20px;
+    background-color: #ffcc00;
     padding: 10px;
-    margin: 10px auto;
-    width: fit-content;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .task-title {
-    color: black;
-    margin: 0;
-    padding-right: 10px;
-    font-size: 1em;
+    font-size: 2em;
+    font-weight: bold;
+    color: yellow;
+    text-shadow: 0 0 5px yellow;
 }
 
 .task-icon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
 }
+
 #tasksList {
     list-style-type: none;
     padding: 0;
@@ -203,15 +198,117 @@ body {
 }
 
 /* Стили для страницы рефералов */
-.referral-rewards,
-.referral-income {
-    margin: 20px 0;
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #ffcc00;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.referral-rewards p,
-.referral-income p {
+.task-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: yellow;
+    text-shadow: 0 0 5px yellow;
+}
+
+.task-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.referral-income {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #2F2F2F;
+    border: 2px solid yellow;
+    border-radius: 10px;
+}
+
+.referral-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.referral-link,
+.referral-income,
+.referral-list {
+    width: 100%;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.referral-link h3,
+.referral-income h3,
+.referral-list h3 {
+    font-size: 2em;
+    font-weight: bold;
+    color: yellow;
+    text-shadow: 0 0 5px yellow;
+}
+
+.referral-link input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #444;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+}
+
+.referral-link button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: yellow;
+    color: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.referral-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.referral-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #2F2F2F;
+    border: 2px solid yellow;
+    border-radius: 10px;
+}
+
+.referral-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.referral-name,
+.referral-income {
     font-size: 1.2em;
     color: yellow;
+    font-weight: bold;
 }
 
 /* Стили для страницы кошелька */
