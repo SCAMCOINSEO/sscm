@@ -147,6 +147,8 @@ body {
     background-color: #ffcc00;
     padding: 10px;
     border-radius: 10px;
+    width: 50%; /* Измененная ширина */
+    margin: 0 auto 20px; /* Центрирование */
 }
 
 .task-title {
@@ -198,7 +200,7 @@ body {
 }
 
 /* Стили для страницы рефералов */
-.task-header {
+.referral-header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,16 +208,18 @@ body {
     background-color: #ffcc00;
     padding: 10px;
     border-radius: 10px;
+    width: 50%; /* Измененная ширина */
+    margin: 0 auto 20px; /* Центрирование */
 }
 
-.task-title {
+.referral-title {
     font-size: 2em;
     font-weight: bold;
     color: black;
     text-shadow: 0 0 5px yellow;
 }
 
-.task-icon {
+.referral-icon {
     width: 30px;
     height: 30px;
     margin-left: 10px;
@@ -252,13 +256,13 @@ body {
     font-size: 2em;
     font-weight: bold;
     color: yellow;
-    text-shadow: 0 0 5px yellow;
+    text-shadow: 0 0 1px yellow;
 }
 
 .referral-link input {
-    width: calc(100% - 30px);
-    padding: 10px;
-    margin: 10px 0;
+    width: calc(95% - 30px);
+    padding: 15px;
+    margin: 30px ;
     font-size: 1.2em;
     color: #444;
     background-color: #ffcc00;
@@ -267,9 +271,9 @@ body {
 }
 
 .referral-link button {
-    width: 100%;
+    width: 90%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 65px ;
     font-size: 1.2em;
     font-weight: bold;
     background-color: yellow;
@@ -281,9 +285,9 @@ body {
 
 .referral-list ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    padding: 10;
+    margin: 10;
+    width: 95%;
 }
 
 .referral-item {
@@ -314,14 +318,13 @@ body {
 /* Стили для страницы кошелька */
 .wallet-balance,
 .promo-code {
-    margin: 20px 0;
+    margin: 20px ;
 }
 
 .wallet-balance h3,
 .promo-code h3 {
     font-size: 1.5em;
     color: yellow;
-    text-shadow: 0 0 5px yellow;
 }
 
 .wallet-balance p,
